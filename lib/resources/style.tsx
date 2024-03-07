@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { ColorManager } from "./color_manager";
+import { fontFamily } from "./assets_manager";
 
 export const appStyles = StyleSheet.create({
     container: {
@@ -23,17 +24,41 @@ export const appStyles = StyleSheet.create({
     },
     textfilled: {
         marginTop: 10,
-        borderColor: 'teal',
-        borderWidth: 2.5,
+        height: 50,
+        borderColor: ColorManager.greyColor,
+        borderWidth: 1.0,
         borderRadius: 10,
-        fontSize: 18,
+        fontSize: 17,
+        fontFamily: fontFamily.PlusJakartaRegular,
         color: ColorManager.blackColor,
-        paddingLeft: 10
+        paddingLeft: 17
+    },
+    textfilled_1: {
+        // marginTop: 10,
+        height: 50,
+        // borderColor: ColorManager.greyColor,
+        // borderWidth: 1.0,
+        // borderRadius: 10,
+        fontSize: 17,
+        flex: 1,
+
+        fontFamily: fontFamily.PlusJakartaRegular,
+        color: ColorManager.blackColor,
+        // paddingLeft: 10
+    },
+    textFilledcontainer: {
+        borderColor: ColorManager.greyColor,
+        borderWidth: 1.0,
+        borderRadius: 10,
+        flexDirection: 'row',
+        paddingHorizontal: 18,
+        marginTop: 10,
+        alignItems: 'center',
+        justifyContent: 'space-between',
     },
     buttonStyle:
     {
-        height: 65,
-        marginTop: 15,
+        height: 60,
         backgroundColor: ColorManager.greenColor,
         alignItems: 'center',
         justifyContent: 'center',

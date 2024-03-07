@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import SplashScreen from '../view/splash/splash_screen';
 import { RoutesName } from '../routes/routes_name';
 import OnBoardingScreen from '../view/onboarding/onboarding_screen';
+import LoginScreen from '../view/auth/login/login_screen';
 
 
 function App(): React.JSX.Element {
@@ -22,6 +23,7 @@ function App(): React.JSX.Element {
           }}
           component={SplashScreen}>
         </ScreenStack.Screen>
+
         <ScreenStack.Screen
           name={RoutesName.onBoardingScreen}
           options={{
@@ -29,6 +31,15 @@ function App(): React.JSX.Element {
           }}
           component={OnBoardingScreen}>
         </ScreenStack.Screen>
+
+        <ScreenStack.Screen
+          name={RoutesName.loginScreen}
+          options={{
+            title: ''
+          }}
+          component={LoginScreen}>
+        </ScreenStack.Screen>
+
       </ScreenStack.Navigator>
     </NavigationContainer>
   );

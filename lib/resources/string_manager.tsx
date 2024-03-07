@@ -1,6 +1,13 @@
 export class StringManager {
     //SplashScreen
     static myApp = "Daily Grind";
+    static dailyTxt = "Daily";
+    static grindTxt = "Grind";
+
+
+    //On boarding screen
+    static getStartBtnTxt = "Get Started";
+    static nextBtnTxt = "Next";
 
     //Auth Screens
     static appTitle = "Welcome to BlogWave";
@@ -8,8 +15,11 @@ export class StringManager {
     static noAccountTxt = "Don't have an account? ";
     static LoginTxt = "Login";
     static signUpTxt = "SignUp";
-    static emailLabelTxt = "Email";
+    static emailExmTxt = "Abc@gmail.com";
+    static emailTxt = "Email";
     static userNameLabelTxt = "UserName";
-    static passLabelTxt = "Passsword";
+    static passTxt = "Passsword";
+    static passExmTxt = "Abc@123";
+    static createAccBtnTxt = "Create Account";
     static haveAccountTxt = " Already have an account?";
 }
