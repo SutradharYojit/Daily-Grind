@@ -6,6 +6,7 @@ import SplashScreen from '../view/splash/splash_screen';
 import { RoutesName } from '../routes/routes_name';
 import OnBoardingScreen from '../view/onboarding/onboarding_screen';
 import LoginScreen from '../view/auth/login/login_screen';
+import SingUpScreen from '../view/auth/signup/signup_screen';
 
 
 function App(): React.JSX.Element {
@@ -35,9 +36,16 @@ function App(): React.JSX.Element {
         <ScreenStack.Screen
           name={RoutesName.loginScreen}
           options={{
-            title: ''
+            headerShown: false,
           }}
           component={LoginScreen}>
+        </ScreenStack.Screen>
+        <ScreenStack.Screen
+          name={RoutesName.signupScreen}
+          options={{
+            title: ''
+          }}
+          component={SingUpScreen}>
         </ScreenStack.Screen>
 
       </ScreenStack.Navigator>

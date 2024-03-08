@@ -1,8 +1,13 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, StyleProp, TextStyle } from 'react-native';
 import { fontFamily } from '../resources/assets_manager';
 
-const AppText = (props: any) => {
+
+type textProps = {
+    style: StyleProp<TextStyle>;
+    children: any;
+}
+const AppText = (props: textProps) => {
     const { style, ...otherProps } = props;
     return (
         <Text style={[styles.text, style]} {...otherProps}>

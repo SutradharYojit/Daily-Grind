@@ -10,9 +10,6 @@ export class StringManager {
     static nextBtnTxt = "Next";
 
     //Auth Screens
-    static appTitle = "Welcome to BlogWave";
-    static loginTitle = "Please log in to access your account";
-    static noAccountTxt = "Don't have an account? ";
     static LoginTxt = "Login";
     static signUpTxt = "SignUp";
     static emailExmTxt = "Abc@gmail.com";
@@ -21,5 +18,15 @@ export class StringManager {
     static passTxt = "Passsword";
     static passExmTxt = "Abc@123";
     static createAccBtnTxt = "Create Account";
-    static haveAccountTxt = " Already have an account?";
+    static passRequriedTxt = "Password is required";
+    static passshortTxt = "Password is too short";
+    static passInvalidTxt = "Password is invalid";
+    static emailRequiredTxt = "Eamil is required";
+    static emailInvalidTxt = "Eamil is invalid";
+    static remeberTxt = "Remember me";
+    static forgerPassTxt = "Forget Password?";
+    static continueTxt = "or continue with";
+
+
+
 }
