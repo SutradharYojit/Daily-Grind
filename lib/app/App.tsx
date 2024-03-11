@@ -7,6 +7,10 @@ import { RoutesName } from '../routes/routes_name';
 import OnBoardingScreen from '../view/onboarding/onboarding_screen';
 import LoginScreen from '../view/auth/login/login_screen';
 import SingUpScreen from '../view/auth/signup/signup_screen';
+import OTPScreen from '../view/auth/otp/otp_screen';
+import ComepleAuthScreen from '../view/auth/otp/complete_auth_screen';
+import DashboardScreen from '../view/dashboard/dashboard';
+import ForgetPassScreen from '../view/auth/forget_pass/forget_pass_screen';
 
 
 function App(): React.JSX.Element {
@@ -47,7 +51,34 @@ function App(): React.JSX.Element {
           }}
           component={SingUpScreen}>
         </ScreenStack.Screen>
-
+        <ScreenStack.Screen
+          name={RoutesName.forgetPassScreen}
+          options={{
+            title: ''
+          }}
+          component={ForgetPassScreen}>
+        </ScreenStack.Screen>
+        <ScreenStack.Screen
+          name={RoutesName.otpScreen}
+          options={{
+            title: ''
+          }}
+          component={OTPScreen}>
+        </ScreenStack.Screen>
+        <ScreenStack.Screen
+          name={RoutesName.completeAuthScreen}
+          options={{
+            headerShown: false,
+          }}
+          component={ComepleAuthScreen}>
+        </ScreenStack.Screen>
+        <ScreenStack.Screen
+          name={RoutesName.dashboardScreen}
+          options={{
+            headerShown: false,
+          }}
+          component={DashboardScreen}>
+        </ScreenStack.Screen>
       </ScreenStack.Navigator>
     </NavigationContainer>
   );

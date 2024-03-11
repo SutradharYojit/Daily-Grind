@@ -64,7 +64,7 @@ const OnBoardingScreen = (props: any) => {
                             if (count < 3) {
                                 setCount(count);
                             } else {
-                                props.navigation.navigate(RoutesName.loginScreen)
+                                props.navigation.replace(RoutesName.loginScreen)
                             }
                         }} label={count == 2 ? StringManager.getStartBtnTxt : StringManager.nextBtnTxt}>
                         </PrimaryButton>

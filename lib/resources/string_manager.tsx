@@ -18,6 +18,9 @@ export class StringManager {
     static passTxt = "Passsword";
     static passExmTxt = "Abc@123";
     static createAccBtnTxt = "Create Account";
+    static exploreBtnTxt = "Let's Explore";
+
+    static submitBtnTxt = "Submit";
     static passRequriedTxt = "Password is required";
     static passshortTxt = "Password is too short";
     static passInvalidTxt = "Password is invalid";

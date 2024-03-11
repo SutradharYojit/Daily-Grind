@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { appStyles } from "../../../resources/style";
-import { Image, TouchableOpacity, View } from "react-native";
+import { Image, TouchableNativeFeedback, TouchableOpacity, View } from "react-native";
 import AppText from "../../../components/primary_text";
 import { StringManager } from "../../../resources/string_manager";
 import { ColorManager } from "../../../resources/color_manager";
@@ -11,9 +11,12 @@ import PrimaryButton from "../../../components/buttons/primary_button";
 import CheckBox from 'react-native-check-box';
 import PrimaryTextFilled from "../../../components/primary_text_filled";
 import { RoutesName } from "../../../routes/routes_name";
+import { Validations } from "../../../utils/validation_regex";
 
 
 const LoginScreen = (props: any) => {
+
+    const validate = new Validations();
     let [userEmail, setMail] = useState<string>('');
     let [userPass, setPass] = useState<string>('');
     let [emailWarn, setEmailWarn] = useState<string>('');
@@ -25,44 +28,6 @@ const LoginScreen = (props: any) => {
     const google = require("../../../../assets/icons/google-symbol.png");
     const apple = require("../../../../assets/icons/apple.png");
     const facebook = require("../../../../assets/icons/facebook.png");
-
-    const emailRgx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    const passRgx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
-
-    const passValidate = (Text: string) => {
-        setPass(Text)
-        if (Text === "") {
-            setPassWarn(StringManager.passRequriedTxt)
-        }
-        else if (Text.length < 4) {
-            setPassWarn(StringManager.passshortTxt)
-        }
-        else if (!validateFilled(Text, passRgx)) {
-            setPassWarn(StringManager.passInvalidTxt)
-        }
-        else {
-            setPassWarn("")
-        }
-    };
-
-    const emailValidate = (Text: string) => {
-        setMail(Text)
-        if (Text === "") {
-            setEmailWarn(StringManager.emailRequiredTxt)
-        }
-        else if (!validateFilled(Text, emailRgx)) {
-            setEmailWarn(StringManager.emailInvalidTxt)
-        }
-        else {
-            setEmailWarn("")
-        }
-    };
-
-    const validateFilled = (validateText: string, regex: RegExp) => {
-        const pattern = regex;
-        return pattern.test(validateText);
-    };
 
     const toggleShowPassword = () => {
         setShowPassword(!showPassword);
@@ -86,7 +51,9 @@ const LoginScreen = (props: any) => {
                     }}>{StringManager.emailTxt}</AppText>
                     <PrimaryTextFilled
                         placeholder={StringManager.emailExmTxt}
-                        onChangeText={emailValidate}
+                        onChangeText={(Text) => {
+                            validate.emailValidate(Text, setMail, setEmailWarn);
+                        }}
                         placeholderTextColor={ColorManager.greyColor}
                         style={appStyles.textfilled}
                     ></PrimaryTextFilled>
@@ -110,7 +77,9 @@ const LoginScreen = (props: any) => {
                         <PrimaryTextFilled
                             secureTextEntry={!showPassword}
                             placeholder={StringManager.passExmTxt}
-                            onChangeText={passValidate}
+                            onChangeText={(Text) => {
+                                validate.passValidate(Text, setPass, setPassWarn);
+                            }}
                             placeholderTextColor={ColorManager.greyColor}
                             style={appStyles.textfilled_1}
                         ></PrimaryTextFilled>
@@ -144,9 +113,14 @@ const LoginScreen = (props: any) => {
                             </AppText>
                         </View>
 
-                        <AppText>
-                            {StringManager.forgerPassTxt}
-                        </AppText>
+                        <TouchableNativeFeedback onPress={() => {
+                            console.log("Press")
+                            props.navigation.navigate(RoutesName.forgetPassScreen);
+                        }}>
+                            <AppText>
+                                {StringManager.forgerPassTxt}
+                            </AppText>
+                        </TouchableNativeFeedback>
 
                     </View>
                 </View>
@@ -170,7 +144,10 @@ const LoginScreen = (props: any) => {
                     </PrimaryButton>
                 </View>
                 <View style={{ paddingTop: 15 }}>
-                    <PrimaryButton onPress={() => { }}
+                    <PrimaryButton onPress={() => {
+                        props.navigation.replace(RoutesName.dashboardScreen)
+
+                    }}
                         label={StringManager.LoginTxt}>
                     </PrimaryButton>
                 </View>
