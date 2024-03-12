@@ -4,16 +4,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { appStyles } from "../../resources/style";
 import AppText from "../../components/primary_text";
 
-const HomePageScreen = (props: any) => {
+const RewardScreen = (props: any) => {
     return (
         <SafeAreaView style={appStyles.container}>
             <View style={appStyles.viewStyle}>
                 <AppText>
-                    Home Screen
+                    Reward Screen
                 </AppText>
             </View>
         </SafeAreaView>
     );
 }
 
-export default HomePageScreen;
+export default RewardScreen;

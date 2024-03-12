@@ -1,3 +1,4 @@
+
 export class RoutesName {
     static splashScreen = "SplashScreen";
     static loginScreen = "LoginScreen";
@@ -8,4 +9,8 @@ export class RoutesName {
     static completeAuthScreen = "CompleteAuthScreen";
     static onBoardingScreen = "OnBoardingScreen";
     static dashboardScreen = "DashboardScreen";
+    static homeScreen = "HomeScreen";
+    static coffeeScreen = "CoffeeScreen";
+    static rewardScreen = "RewardScreen";
+    static userProfileScreen = "UserProfileScreen";
 }

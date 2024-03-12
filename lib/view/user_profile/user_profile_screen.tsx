@@ -4,16 +4,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { appStyles } from "../../resources/style";
 import AppText from "../../components/primary_text";
 
-const HomePageScreen = (props: any) => {
+const UserProfileScreen = (props: any) => {
     return (
         <SafeAreaView style={appStyles.container}>
             <View style={appStyles.viewStyle}>
                 <AppText>
-                    Home Screen
+                    User Profile Screen
                 </AppText>
             </View>
         </SafeAreaView>
     );
 }
 
-export default HomePageScreen;
+export default UserProfileScreen;

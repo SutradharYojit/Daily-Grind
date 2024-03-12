@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native';
@@ -11,7 +10,7 @@ import OTPScreen from '../view/auth/otp/otp_screen';
 import ComepleAuthScreen from '../view/auth/otp/complete_auth_screen';
 import DashboardScreen from '../view/dashboard/dashboard';
 import ForgetPassScreen from '../view/auth/forget_pass/forget_pass_screen';
-
+import NewPasswordScreen from '../view/auth/forget_pass/create_new_pass_screen';
 
 function App(): React.JSX.Element {
   const ScreenStack = createNativeStackNavigator();
@@ -57,6 +56,13 @@ function App(): React.JSX.Element {
             title: ''
           }}
           component={ForgetPassScreen}>
+        </ScreenStack.Screen>
+        <ScreenStack.Screen
+          name={RoutesName.newPassScreen}
+          options={{
+            title: ''
+          }}
+          component={NewPasswordScreen}>
         </ScreenStack.Screen>
         <ScreenStack.Screen
           name={RoutesName.otpScreen}

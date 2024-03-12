@@ -13,56 +13,47 @@ import { RoutesName } from "../../../routes/routes_name";
 
 const ForgetPassScreen = (props: any) => {
     const validate = new Validations();
-    let [userEmail, setMail] = useState<string>('');
-    let [emailWarn, setEmailWarn] = useState<string>('');
+    const [userEmail, setUserEmail] = useState<string>('');
+    const [emailWarn, setEmailWarn] = useState<string>('');
+
+    const handleEmailChange = (text: string) => {
+        validate.emailValidate(text, setUserEmail, setEmailWarn);
+    };
+
+    const navigateToNewPassScreen = () => {
+        props.navigation.navigate(RoutesName.newPassScreen);
+    };
 
     return (
         <SafeAreaView style={appStyles.container}>
-            <View style={{ flex: 1, justifyContent: "space-between" }}>
-                <View style={{ paddingTop: 50 }}>
-                    <AppText style={{
-                        fontSize: 25,
-                        color: ColorManager.blackColor,
-                        fontFamily: fontFamily.PlusJakartaBold,
-                    }}>
-                        Forget Your Password?
-                    </AppText>
-                    <AppText style={{
-                        fontSize: 15,
-                        color: ColorManager.greyColor,
-                        fontFamily: fontFamily.PlusJakartaMedium,
-                    }}>
-                        Input Your Email
-                    </AppText>
-                    <AppText style={{
-                        color: ColorManager.greyColor,
-                        fontSize: 15,
-                        paddingTop: 15,
-                        fontFamily: fontFamily.PlusJakartaMedium
-                    }}>{StringManager.emailTxt}</AppText>
-
-                    <PrimaryTextFilled
-                        placeholder={StringManager.emailExmTxt}
-                        onChangeText={(Text) => {
-                            validate.emailValidate(Text, setMail, setEmailWarn);
-                        }}
-                        placeholderTextColor={ColorManager.greyColor}
-                        style={appStyles.textfilled}
-                    ></PrimaryTextFilled>
-                </View>
-                <View style={{}} >
-                    <PrimaryButton onPress={() => {
-                        props.navigation.navigate(RoutesName.otpScreen)
-
-                    }}
-                        label={StringManager.submitBtnTxt}>
-                    </PrimaryButton>
-                </View>
+            <View style={{ flex: 1, paddingTop: 50 }}>
+                <AppText style={appStyles.title}>{StringManager.forgerUrPassTxt}</AppText>
+                <AppText style={appStyles.subtitle}>{StringManager.inputEmailTxt}</AppText>
+                <AppText style={styles.text}>{StringManager.emailTxt}</AppText>
+                <PrimaryTextFilled
+                    placeholder={StringManager.emailExmTxt}
+                    onChangeText={handleEmailChange}
+                    placeholderTextColor={ColorManager.greyColor}
+                    style={appStyles.textfilled}
+                />
+                {emailWarn.length > 0 && <AppText style={appStyles.error}>{emailWarn}</AppText>}
             </View>
-
+            <View>
+                <PrimaryButton onPress={navigateToNewPassScreen} label={StringManager.submitBtnTxt} />
+            </View>
         </SafeAreaView>
     );
 };
 
+const styles = {
+
+    text: {
+        color: ColorManager.greyColor,
+        fontSize: 15,
+        paddingTop: 15,
+        fontFamily: fontFamily.PlusJakartaMedium,
+    },
+
+};
 
 export default ForgetPassScreen;

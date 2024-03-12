@@ -17,11 +17,11 @@ const ComepleAuthScreen = (props: any) => {
 
                     <AppText
                         style={{ fontSize: 30, color: ColorManager.blackColor, }}>
-                        Successfully created an account
+                        {StringManager.successCreatedAccTxt}
                     </AppText>
                     <AppText
                         style={{ fontSize: 15, color: ColorManager.greyColor, paddingTop: 4 }}>
-                        After this you can explore our services and enjoy our products. Have fun and enjoy it!
+                        {StringManager.successTxt}
                     </AppText>
                 </View>
                 <View style={{ paddingTop: 50 }} >

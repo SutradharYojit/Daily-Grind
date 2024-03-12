@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { appStyles } from "../../../resources/style";
-import { Image, TouchableNativeFeedback, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, TouchableNativeFeedback, TouchableOpacity, View } from "react-native";
 import AppText from "../../../components/primary_text";
 import { StringManager } from "../../../resources/string_manager";
 import { ColorManager } from "../../../resources/color_manager";
@@ -15,7 +15,6 @@ import { Validations } from "../../../utils/validation_regex";
 
 
 const LoginScreen = (props: any) => {
-
     const validate = new Validations();
     let [userEmail, setMail] = useState<string>('');
     let [userPass, setPass] = useState<string>('');
@@ -32,23 +31,19 @@ const LoginScreen = (props: any) => {
     const toggleShowPassword = () => {
         setShowPassword(!showPassword);
     };
-
+    
     return (
         <SafeAreaView style={appStyles.container}>
             <View style={{}}>
                 <View style={{ paddingVertical: 45 }}>
-                    <AppText style={[appStyles.appTitle, { fontFamily: fontFamily.PlusJakartaBold, }]}>{StringManager.dailyTxt}<AppText style={{
-                        fontSize: 45,
-                        color: ColorManager.greenColor,
+                    <AppText style={[appStyles.appTitle, {
                         fontFamily: fontFamily.PlusJakartaBold,
-                    }}>{StringManager.grindTxt}</AppText></AppText>
+                    }]}>{StringManager.dailyTxt}
+                        <AppText style={styles.appTitleGreen}>{StringManager.grindTxt}</AppText></AppText>
                 </View>
+
                 <View style={{ paddingTop: 15 }}>
-                    <AppText style={{
-                        color: ColorManager.greyColor,
-                        fontSize: 15,
-                        fontFamily: fontFamily.PlusJakartaMedium
-                    }}>{StringManager.emailTxt}</AppText>
+                    <AppText style={appStyles.label}>{StringManager.emailTxt}</AppText>
                     <PrimaryTextFilled
                         placeholder={StringManager.emailExmTxt}
                         onChangeText={(Text) => {
@@ -59,20 +54,12 @@ const LoginScreen = (props: any) => {
                     ></PrimaryTextFilled>
                     {
                         emailWarn.length > 0 &&
-                        <AppText style={{
-                            color: ColorManager.redColor,
-                            fontSize: 16,
-                            fontFamily: fontFamily.PlusJakartaMedium
-                        }}>{emailWarn}</AppText>
+                        <AppText style={appStyles.error}>{emailWarn}</AppText>
                     }
                 </View>
 
                 <View style={{ paddingTop: 8 }}>
-                    <AppText style={{
-                        color: ColorManager.greyColor,
-                        fontSize: 15,
-                        fontFamily: fontFamily.PlusJakartaMedium
-                    }}>{StringManager.passTxt}</AppText>
+                    <AppText style={appStyles.label}>{StringManager.passTxt}</AppText>
                     <View style={appStyles.textFilledcontainer}>
                         <PrimaryTextFilled
                             secureTextEntry={!showPassword}
@@ -84,16 +71,12 @@ const LoginScreen = (props: any) => {
                             style={appStyles.textfilled_1}
                         ></PrimaryTextFilled>
                         <IconButton onPress={() => toggleShowPassword()}>
-                            <Image style={{ width: 22, height: 22 }} source={showPassword ? unhide : hide}></Image>
+                            <Image style={appStyles.icon} source={showPassword ? unhide : hide}></Image>
                         </IconButton>
                     </View>
                     {
                         passWarn.length > 0 &&
-                        <AppText style={{
-                            color: ColorManager.redColor,
-                            fontSize: 16,
-                            fontFamily: fontFamily.PlusJakartaMedium,
-                        }}>{passWarn}</AppText>
+                        <AppText style={appStyles.error}>{passWarn}</AppText>
                     }
                     <View style={{
                         flexDirection: 'row',
@@ -124,29 +107,22 @@ const LoginScreen = (props: any) => {
 
                     </View>
                 </View>
+
                 <View style={{ paddingTop: 50 }}>
                     <PrimaryButton
                         onPress={() => {
                             props.navigation.navigate(RoutesName.signupScreen)
                         }}
                         label={StringManager.createAccBtnTxt}
-                        secondryBtnStyle={{
-                            backgroundColor: ColorManager.whiteColor,
-                            borderColor: ColorManager.greyColor,
-                            borderWidth: 1.0,
-                        }}
-                        secondryTxtStyle={{
-                            color: ColorManager.blackColor,
-                            fontFamily: fontFamily.PlusJakartaMedium,
-                            fontSize: 20
-                        }}
+                        secondryBtnStyle={styles.secondryBtnStyle}
+                        secondryTxtStyle={styles.secondryTxtStyle}
                     >
                     </PrimaryButton>
                 </View>
+
                 <View style={{ paddingTop: 15 }}>
                     <PrimaryButton onPress={() => {
                         props.navigation.replace(RoutesName.dashboardScreen)
-
                     }}
                         label={StringManager.LoginTxt}>
                     </PrimaryButton>
@@ -195,18 +171,41 @@ const CardTile = ({ source, onPress }: any) => {
     return (
         <TouchableOpacity
             onPress={onPress}
-            style={{
-                height: 60,
-                borderColor: ColorManager.greyColor,
-                justifyContent: 'center',
-                borderWidth: 1.0,
-                borderRadius: 15,
-                padding: 18
-            }}>
-            <Image style={{ width: 25, height: 25 }} source={source}></Image>
+            style={styles.cardTile}>
+            <Image style={styles.cardTileIcon} source={source}></Image>
         </TouchableOpacity>
     );
 }
+
+const styles = StyleSheet.create({
+    appTitleGreen: {
+        fontSize: 45,
+        color: ColorManager.greenColor,
+        fontFamily: fontFamily.PlusJakartaBold,
+    },
+    secondryBtnStyle: {
+        backgroundColor: ColorManager.whiteColor,
+        borderColor: ColorManager.greyColor,
+        borderWidth: 1.0,
+    },
+    secondryTxtStyle: {
+        color: ColorManager.blackColor,
+        fontFamily: fontFamily.PlusJakartaMedium,
+        fontSize: 20
+    },
+    cardTile: {
+        height: 60,
+        borderColor: ColorManager.greyColor,
+        justifyContent: 'center',
+        borderWidth: 1.0,
+        borderRadius: 15,
+        padding: 18,
+    },
+    cardTileIcon: {
+        width: 25,
+        height: 25,
+    },
+});
 
 
 export default LoginScreen;

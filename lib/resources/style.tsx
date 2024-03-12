@@ -12,15 +12,25 @@ export const appStyles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center'
     },
-
     appTitle: {
         textAlign: 'center',
         fontSize: 45,
         color: ColorManager.blackColor
     },
-    text: {
-        textAlign: 'center',
-        color: ColorManager.blackColor
+    title: {
+        fontSize: 25,
+        color: ColorManager.blackColor,
+        fontFamily: fontFamily.PlusJakartaBold,
+    },
+    subtitle: {
+        fontSize: 15,
+        color: ColorManager.greyColor,
+        fontFamily: fontFamily.PlusJakartaMedium,
+    },
+    label: {
+        color: ColorManager.greyColor,
+        fontSize: 15,
+        fontFamily: fontFamily.PlusJakartaMedium,
     },
     textfilled: {
         marginTop: 10,
@@ -63,5 +73,18 @@ export const appStyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 15,
-    }
+    },
+    icon: {
+        width: 22,
+        height: 22,
+    },
+    bottomIcon: {
+        width:  28,
+        height: 28,
+    },
+    error: {
+        color: ColorManager.redColor,
+        fontSize: 16,
+        fontFamily: fontFamily.PlusJakartaMedium,
+    },
 });
