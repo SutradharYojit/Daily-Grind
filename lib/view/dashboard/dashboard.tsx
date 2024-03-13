@@ -18,20 +18,10 @@ const DashboardScreen = () => {
 
     return (
         <bottomTab.Navigator screenOptions={({ route }) => ({
-            // headerLeft: () => <Image style={{ width: 40, height: 40, marginLeft: 10 }} source={require('../../../assets/icons/blogger.png')} />,
             tabBarStyle: { height: 70 },
             tabBarShowLabel: false,
             tabBarHideOnKeyboard: true,
-            tabBarLabelStyle: {
-                fontSize: 15,
-                marginBottom: 5,
-                color: 'green'
-            },
-            tabBarIconStyle: {
-                color: 'green'
-            },
             tabBarIcon: ({ focused, color, size }) => {
-                console.log(color)
                 let iconName: ImageSourcePropType;
                 switch (route.name) {
                     case RoutesName.homeScreen:
@@ -53,10 +43,10 @@ const DashboardScreen = () => {
 
             },
         })}>
-            <bottomTab.Screen name={RoutesName.homeScreen} component={HomePageScreen} options={{ title: " " }} />
-            <bottomTab.Screen name={RoutesName.coffeeScreen} component={CoffeeScreen} options={{ title: " " }} />
-            <bottomTab.Screen name={RoutesName.rewardScreen} component={RewardScreen} options={{ title: " " }} />
-            <bottomTab.Screen name={RoutesName.userProfileScreen} component={UserProfileScreen} options={{ title: " " }} />
+            <bottomTab.Screen name={RoutesName.homeScreen} component={HomePageScreen} options={{ headerShown: false }} />
+            <bottomTab.Screen name={RoutesName.coffeeScreen} component={CoffeeScreen} options={{ headerShown: false }} />
+            <bottomTab.Screen name={RoutesName.rewardScreen} component={RewardScreen} options={{ headerShown: false }} />
+            <bottomTab.Screen name={RoutesName.userProfileScreen} component={UserProfileScreen} options={{ headerShown: false }} />
         </bottomTab.Navigator>
     );
 };

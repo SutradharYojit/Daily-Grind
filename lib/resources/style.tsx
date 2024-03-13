@@ -5,7 +5,7 @@ import { fontFamily } from "./assets_manager";
 export const appStyles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: ColorManager.whiteColor,
+        backgroundColor: ColorManager.rgbWhiteClr,
         padding: 15
     },
     viewStyle: {
@@ -79,7 +79,7 @@ export const appStyles = StyleSheet.create({
         height: 22,
     },
     bottomIcon: {
-        width:  28,
+        width: 28,
         height: 28,
     },
     error: {

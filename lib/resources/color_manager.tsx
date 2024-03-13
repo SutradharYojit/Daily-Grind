@@ -4,4 +4,7 @@ export class ColorManager {
     static greyColor = 'grey';
     static redColor = 'red';
     static greenColor = '#0F9565';
+    static rgbWhiteClr = '#FBFBFB';
+    static lightGreenColor = '#66DF9C';
+
 }
