@@ -13,4 +13,6 @@ export class RoutesName {
     static coffeeScreen = "CoffeeScreen";
     static rewardScreen = "RewardScreen";
     static userProfileScreen = "UserProfileScreen";
+    static coffeeShopCoverScreen = "CoffeeShopCoverScreen";
+
 }

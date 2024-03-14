@@ -40,5 +40,8 @@ export class StringManager {
     static continueTxt = "or continue with";
     static successCreatedAccTxt = "Successfully created an account";
     static successTxt = "After this you can explore our services and enjoy our products. Have fun and enjoy it!";
+    static seeMoreBtnTxt = "See More";
+
+
 
 }

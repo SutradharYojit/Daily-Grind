@@ -6,5 +6,5 @@ export class ColorManager {
     static greenColor = '#0F9565';
     static rgbWhiteClr = '#FBFBFB';
     static lightGreenColor = '#66DF9C';
-
+    static goldColor = '#66DF9C';
 }

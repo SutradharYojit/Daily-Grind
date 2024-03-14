@@ -11,11 +11,11 @@ import ComepleAuthScreen from '../view/auth/otp/complete_auth_screen';
 import DashboardScreen from '../view/dashboard/dashboard';
 import ForgetPassScreen from '../view/auth/forget_pass/forget_pass_screen';
 import NewPasswordScreen from '../view/auth/forget_pass/create_new_pass_screen';
+import CoffeeShopCoerScreen from '../view/coffer_shop_cover/coffee_shop_cover_screen';
 
 function App(): React.JSX.Element {
   const ScreenStack = createNativeStackNavigator();
   // Set the default font family
-
 
   return (
     <NavigationContainer>
@@ -85,10 +85,16 @@ function App(): React.JSX.Element {
           }}
           component={DashboardScreen}>
         </ScreenStack.Screen>
+        <ScreenStack.Screen
+          name={RoutesName.coffeeShopCoverScreen}
+          options={{
+            headerShown: false,
+          }}
+          component={CoffeeShopCoerScreen}>
+        </ScreenStack.Screen>
       </ScreenStack.Navigator>
     </NavigationContainer>
   );
 }
-
 
 export default App;

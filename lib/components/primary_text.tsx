@@ -4,13 +4,14 @@ import { fontFamily } from '../resources/assets_manager';
 
 
 type textProps = {
-    style: StyleProp<TextStyle>;
+    style?: StyleProp<TextStyle>;
     children: any;
+    numberOfLines?: number
 }
 const AppText = (props: textProps) => {
     const { style, ...otherProps } = props;
     return (
-        <Text style={[styles.text, style]} {...otherProps}>
+        <Text numberOfLines={props.numberOfLines ?? 0} style={[styles.text, style]} {...otherProps}>
             {props.children}
         </Text>
     );
@@ -21,9 +22,5 @@ const styles = StyleSheet.create({
         fontFamily: fontFamily.PlusJakartaRegular, // Set your desired font family here
     },
 });
-
-AppText.defaultProps = {
-    style: {},
-};
 
 export default AppText;
