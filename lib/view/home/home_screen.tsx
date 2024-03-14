@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, Image, ImageBackground, ScrollView, TouchableNativeFeedback, TouchableOpacity, View } from "react-native";
+import { FlatList, Image, ImageBackground, ScrollView, StyleSheet, TouchableNativeFeedback, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { appStyles } from "../../resources/style";
 import AppText from "../../components/primary_text";
@@ -37,7 +37,9 @@ const HomePageScreen = (props: any) => {
 
     return (
         <SafeAreaView style={{ flex: 1 }} >
-            <ScrollView>
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+            >
                 <View style={{ flex: 1 }} >
                     <View style={{
                         minHeight: 200,
@@ -160,6 +162,7 @@ const HomePageScreen = (props: any) => {
                         <FlatList
                             horizontal={true}
                             data={cardOptionsData}
+                            showsHorizontalScrollIndicator={false}
                             renderItem={(data) =>
                                 <TouchableOpacity onPress={() => {
                                     props.navigation.navigate(RoutesName.coffeeShopCoverScreen);
@@ -304,4 +307,53 @@ const ViewAllTile = ({ title, onPress }: any) => {
     );
 }
 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    header: {
+        minHeight: 200,
+        maxHeight: 500,
+        backgroundColor: ColorManager.greenColor,
+        padding: 15,
+        position: 'relative',
+        zIndex: 1,
+    },
+    headerText: {
+        color: ColorManager.whiteColor,
+        fontSize: 25,
+        fontFamily: fontFamily.PlusJakartaMedium,
+    },
+    balanceContainer: {
+        backgroundColor: ColorManager.whiteColor,
+        padding: 20,
+        borderRadius: 20,
+        position: 'absolute',
+        width: "92%",
+        alignSelf: 'center',
+        top: 95,
+        zIndex: 2,
+    },
+    balanceLabel: {
+        fontSize: 17,
+        color: ColorManager.greyColor,
+    },
+    balanceAmount: {
+        fontSize: 18,
+        color: ColorManager.blackColor,
+        fontWeight: '600',
+        marginTop: 5,
+    },
+    cardOption: {
+        alignItems: 'center',
+    },
+    cardOptionIcon: {
+        width: 35,
+        height: 35,
+    },
+    cardOptionText: {
+        fontSize: 17,
+        color: ColorManager.greyColor,
+    },
+});
 export default HomePageScreen;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { appStyles } from "../../../resources/style";
-import { Image, StyleSheet, TouchableNativeFeedback, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StyleSheet, TouchableNativeFeedback, TouchableOpacity, View } from "react-native";
 import AppText from "../../../components/primary_text";
 import { StringManager } from "../../../resources/string_manager";
 import { ColorManager } from "../../../resources/color_manager";
@@ -31,138 +31,140 @@ const LoginScreen = (props: any) => {
     const toggleShowPassword = () => {
         setShowPassword(!showPassword);
     };
-    
+
     return (
         <SafeAreaView style={appStyles.container}>
-            <View style={{}}>
-                <View style={{ paddingVertical: 45 }}>
-                    <AppText style={[appStyles.appTitle, {
-                        fontFamily: fontFamily.PlusJakartaBold,
-                    }]}>{StringManager.dailyTxt}
-                        <AppText style={styles.appTitleGreen}>{StringManager.grindTxt}</AppText></AppText>
-                </View>
+            <ScrollView>
+                <View style={{}}>
+                    <View style={{ paddingVertical: 45 }}>
+                        <AppText style={[appStyles.appTitle, {
+                            fontFamily: fontFamily.PlusJakartaBold,
+                        }]}>{StringManager.dailyTxt}
+                            <AppText style={styles.appTitleGreen}>{StringManager.grindTxt}</AppText></AppText>
+                    </View>
 
-                <View style={{ paddingTop: 15 }}>
-                    <AppText style={appStyles.label}>{StringManager.emailTxt}</AppText>
-                    <PrimaryTextFilled
-                        placeholder={StringManager.emailExmTxt}
-                        onChangeText={(Text) => {
-                            validate.emailValidate(Text, setMail, setEmailWarn);
-                        }}
-                        placeholderTextColor={ColorManager.greyColor}
-                        style={appStyles.textfilled}
-                    ></PrimaryTextFilled>
-                    {
-                        emailWarn.length > 0 &&
-                        <AppText style={appStyles.error}>{emailWarn}</AppText>
-                    }
-                </View>
-
-                <View style={{ paddingTop: 8 }}>
-                    <AppText style={appStyles.label}>{StringManager.passTxt}</AppText>
-                    <View style={appStyles.textFilledcontainer}>
+                    <View style={{ paddingTop: 15 }}>
+                        <AppText style={appStyles.label}>{StringManager.emailTxt}</AppText>
                         <PrimaryTextFilled
-                            secureTextEntry={!showPassword}
-                            placeholder={StringManager.passExmTxt}
+                            placeholder={StringManager.emailExmTxt}
                             onChangeText={(Text) => {
-                                validate.passValidate(Text, setPass, setPassWarn);
+                                validate.emailValidate(Text, setMail, setEmailWarn);
                             }}
                             placeholderTextColor={ColorManager.greyColor}
-                            style={appStyles.textfilled_1}
+                            style={appStyles.textfilled}
                         ></PrimaryTextFilled>
-                        <IconButton onPress={() => toggleShowPassword()}>
-                            <Image style={appStyles.icon} source={showPassword ? unhide : hide}></Image>
-                        </IconButton>
+                        {
+                            emailWarn.length > 0 &&
+                            <AppText style={appStyles.error}>{emailWarn}</AppText>
+                        }
                     </View>
-                    {
-                        passWarn.length > 0 &&
-                        <AppText style={appStyles.error}>{passWarn}</AppText>
-                    }
+
+                    <View style={{ paddingTop: 8 }}>
+                        <AppText style={appStyles.label}>{StringManager.passTxt}</AppText>
+                        <View style={appStyles.textFilledcontainer}>
+                            <PrimaryTextFilled
+                                secureTextEntry={!showPassword}
+                                placeholder={StringManager.passExmTxt}
+                                onChangeText={(Text) => {
+                                    validate.passValidate(Text, setPass, setPassWarn);
+                                }}
+                                placeholderTextColor={ColorManager.greyColor}
+                                style={appStyles.textfilled_1}
+                            ></PrimaryTextFilled>
+                            <IconButton onPress={() => toggleShowPassword()}>
+                                <Image style={appStyles.icon} source={showPassword ? unhide : hide}></Image>
+                            </IconButton>
+                        </View>
+                        {
+                            passWarn.length > 0 &&
+                            <AppText style={appStyles.error}>{passWarn}</AppText>
+                        }
+                        <View style={{
+                            flexDirection: 'row',
+                            justifyContent: "space-between",
+                            paddingTop: 5
+                        }}>
+                            <View style={{ flexDirection: 'row', width: 135 }}>
+                                <CheckBox
+                                    style={{ flex: 1, }}
+                                    onClick={() => {
+                                        setChecked(!checked)
+                                    }}
+                                    isChecked={checked}
+                                />
+                                <AppText style={{ color: ColorManager.greyColor }}>
+                                    {StringManager.remeberTxt}
+                                </AppText>
+                            </View>
+
+                            <TouchableNativeFeedback onPress={() => {
+                                props.navigation.navigate(RoutesName.forgetPassScreen);
+                            }}>
+                                <AppText style={{ color: ColorManager.greyColor }}>
+                                    {StringManager.forgerPassTxt}
+                                </AppText>
+                            </TouchableNativeFeedback>
+
+                        </View>
+                    </View>
+
+                    <View style={{ paddingTop: 50 }}>
+                        <PrimaryButton
+                            onPress={() => {
+                                props.navigation.navigate(RoutesName.signupScreen)
+                            }}
+                            label={StringManager.createAccBtnTxt}
+                            secondryBtnStyle={styles.secondryBtnStyle}
+                            secondryTxtStyle={styles.secondryTxtStyle}
+                        >
+                        </PrimaryButton>
+                    </View>
+
+                    <View style={{ paddingTop: 15 }}>
+                        <PrimaryButton onPress={() => {
+                            props.navigation.replace(RoutesName.dashboardScreen)
+                        }}
+                            label={StringManager.LoginTxt}>
+                        </PrimaryButton>
+                    </View>
+
                     <View style={{
                         flexDirection: 'row',
-                        justifyContent: "space-between",
-                        paddingTop: 5
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        paddingTop: 55,
                     }}>
-                        <View style={{ flexDirection: 'row', width: 125 }}>
-                            <CheckBox
-                                style={{ flex: 1, }}
-                                onClick={() => {
-                                    setChecked(!checked)
-                                }}
-                                isChecked={checked}
-                            />
-                            <AppText>
-                                {StringManager.remeberTxt}
-                            </AppText>
+                        <View
+                            style={{
+                                flex: 1,
+                                backgroundColor: ColorManager.greyColor,
+                                height: 2.0,
+                            }}
+                        />
+                        <View style={{ paddingHorizontal: 20 }}>
+                            <AppText style={{ color: ColorManager.greyColor }}>{StringManager.continueTxt}</AppText>
                         </View>
+                        <View
+                            style={{
+                                flex: 1,
+                                backgroundColor: ColorManager.greyColor,
+                                height: 2.0,
+                            }}
+                        />
+                    </View>
 
-                        <TouchableNativeFeedback onPress={() => {
-                            console.log("Press")
-                            props.navigation.navigate(RoutesName.forgetPassScreen);
-                        }}>
-                            <AppText>
-                                {StringManager.forgerPassTxt}
-                            </AppText>
-                        </TouchableNativeFeedback>
-
+                    <View style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-evenly',
+                        paddingTop: 45,
+                        // aspectRatio:20
+                    }}>
+                        <CardTile source={google} onPress={() => { }}></CardTile>
+                        <CardTile source={apple} onPress={() => { }}></CardTile>
+                        <CardTile source={facebook} onPress={() => { }}></CardTile>
                     </View>
                 </View>
-
-                <View style={{ paddingTop: 50 }}>
-                    <PrimaryButton
-                        onPress={() => {
-                            props.navigation.navigate(RoutesName.signupScreen)
-                        }}
-                        label={StringManager.createAccBtnTxt}
-                        secondryBtnStyle={styles.secondryBtnStyle}
-                        secondryTxtStyle={styles.secondryTxtStyle}
-                    >
-                    </PrimaryButton>
-                </View>
-
-                <View style={{ paddingTop: 15 }}>
-                    <PrimaryButton onPress={() => {
-                        props.navigation.replace(RoutesName.dashboardScreen)
-                    }}
-                        label={StringManager.LoginTxt}>
-                    </PrimaryButton>
-                </View>
-
-                <View style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    paddingTop: 55,
-                }}>
-                    <View
-                        style={{
-                            flex: 1,
-                            backgroundColor: ColorManager.greyColor,
-                            height: 2.0,
-                        }}
-                    />
-                    <View style={{ paddingHorizontal: 20 }}>
-                        <AppText>{StringManager.continueTxt}</AppText>
-                    </View>
-                    <View
-                        style={{
-                            flex: 1,
-                            backgroundColor: ColorManager.greyColor,
-                            height: 2.0,
-                        }}
-                    />
-                </View>
-
-                <View style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-evenly',
-                    paddingTop: 45,
-                }}>
-                    <CardTile source={google} onPress={() => { }}></CardTile>
-                    <CardTile source={apple} onPress={() => { }}></CardTile>
-                    <CardTile source={facebook} onPress={() => { }}></CardTile>
-                </View>
-            </View>
+            </ScrollView>
         </SafeAreaView >
     );
 }

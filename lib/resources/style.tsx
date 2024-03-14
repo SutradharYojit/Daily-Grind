@@ -44,17 +44,11 @@ export const appStyles = StyleSheet.create({
         paddingLeft: 17
     },
     textfilled_1: {
-        // marginTop: 10,
         height: 50,
-        // borderColor: ColorManager.greyColor,
-        // borderWidth: 1.0,
-        // borderRadius: 10,
         fontSize: 17,
         flex: 1,
-
         fontFamily: fontFamily.PlusJakartaRegular,
         color: ColorManager.blackColor,
-        // paddingLeft: 10
     },
     textFilledcontainer: {
         borderColor: ColorManager.greyColor,
@@ -77,6 +71,11 @@ export const appStyles = StyleSheet.create({
     icon: {
         width: 22,
         height: 22,
+    },
+    //delete after use
+    icon_demo: {
+        width: 25,
+        height: 25,
     },
     bottomIcon: {
         width: 28,

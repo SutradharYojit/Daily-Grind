@@ -5,7 +5,7 @@ import { appStyles } from "../../../resources/style";
 import AppText from "../../../components/primary_text";
 import { ColorManager } from "../../../resources/color_manager";
 import { fontFamily } from "../../../resources/assets_manager";
-import OTPTextView from "react-native-otp-textinput";
+// import OTPTextView from "react-native-otp-textinput";
 import PrimaryButton from "../../../components/buttons/primary_button";
 import { StringManager } from "../../../resources/string_manager";
 import { RoutesName } from "../../../routes/routes_name";
@@ -22,11 +22,11 @@ const OTPScreen = (props: any) => {
                     <AppText style={appStyles.subtitle}>
                         {StringManager.inputOTPTxt}
                     </AppText>
-                    <OTPTextView inputCount={4}
+                    {/* <OTPTextView inputCount={4}
                         handleTextChange={(Text) => {
                             console.log(Text);
                         }}
-                    ></OTPTextView>
+                    ></OTPTextView> */}
 
                 </View>
                 <View style={{}} >
