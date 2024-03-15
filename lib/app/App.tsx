@@ -11,7 +11,8 @@ import ComepleAuthScreen from '../view/auth/otp/complete_auth_screen';
 import DashboardScreen from '../view/dashboard/dashboard';
 import ForgetPassScreen from '../view/auth/forget_pass/forget_pass_screen';
 import NewPasswordScreen from '../view/auth/forget_pass/create_new_pass_screen';
-import CoffeeShopCoerScreen from '../view/coffer_shop_cover/coffee_shop_cover_screen';
+import CoffeeShopCoverScreen from '../view/coffer_shop_cover/coffee_shop_cover_screen';
+import ShopDetailsScreen from '../view/shop_details/shop_details_screen';
 
 function App(): React.JSX.Element {
   const ScreenStack = createNativeStackNavigator();
@@ -90,7 +91,14 @@ function App(): React.JSX.Element {
           options={{
             headerShown: false,
           }}
-          component={CoffeeShopCoerScreen}>
+          component={CoffeeShopCoverScreen}>
+        </ScreenStack.Screen>
+        <ScreenStack.Screen
+          name={RoutesName.shopDetailsScreen}
+          options={{
+            headerShown: false,
+          }}
+          component={ShopDetailsScreen}>
         </ScreenStack.Screen>
       </ScreenStack.Navigator>
     </NavigationContainer>

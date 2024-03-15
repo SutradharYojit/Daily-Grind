@@ -160,6 +160,7 @@ const HomePageScreen = (props: any) => {
                             <ViewAllTile title={"Favorite Place"} onPress={() => { }}></ViewAllTile>
                         </View>
                         <FlatList
+                            keyExtractor={(cardOptionsData) => cardOptionsData.id.toString()}
                             horizontal={true}
                             data={cardOptionsData}
                             showsHorizontalScrollIndicator={false}
@@ -200,6 +201,7 @@ const HomePageScreen = (props: any) => {
                         <View style={{ paddingHorizontal: 15 }}>
                             <ViewAllTile title={"Popular Place"} onPress={() => { }}></ViewAllTile>
                             <FlatList
+                                keyExtractor={(cardOptionsData) => cardOptionsData.id.toString()}
                                 data={cardOptionsData}
                                 renderItem={(data) =>
                                     <View style={{
@@ -231,7 +233,10 @@ const HomePageScreen = (props: any) => {
 
                                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                                                 {
-                                                    [1, 2, 3, 4, 5].map((data) => <Image source={require("../../../assets/icons/gold_start.png")} style={{ width: 14, height: 14 }}></Image>
+                                                    [1, 2, 3, 4, 5].map((data) => <Image
+                                                        key={data}
+                                                        source={require("../../../assets/icons/gold_start.png")}
+                                                        style={{ width: 14, height: 14 }}></Image>
                                                     )
                                                 }
                                                 <AppText style={{
