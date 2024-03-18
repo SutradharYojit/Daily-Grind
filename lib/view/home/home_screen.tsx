@@ -99,8 +99,6 @@ const HomePageScreen = (props: any) => {
                                     source={data.icon}
                                     onPress={data.onPress}
                                     subtitle={data.subtitle}>
-
-
                                 </CardOptions>)
                             }
 
@@ -203,6 +201,7 @@ const HomePageScreen = (props: any) => {
                             <FlatList
                                 keyExtractor={(cardOptionsData) => cardOptionsData.id.toString()}
                                 data={cardOptionsData}
+                                scrollEnabled={false}
                                 renderItem={(data) =>
                                     <View style={{
                                         backgroundColor: ColorManager.whiteColor,
@@ -263,7 +262,11 @@ const HomePageScreen = (props: any) => {
 
                                         </View>
 
-                                    </View>}></FlatList>
+                                    </View>
+                                }
+                            >
+
+                            </FlatList>
                         </View>
 
                     </View>
