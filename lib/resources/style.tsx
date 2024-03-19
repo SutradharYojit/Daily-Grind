@@ -8,6 +8,10 @@ export const appStyles = StyleSheet.create({
         backgroundColor: ColorManager.whiteColor,
         padding: 15
     },
+    whiteBackground: {
+        flex: 1,
+        backgroundColor: ColorManager.whiteColor,
+    },
     viewStyle: {
         flex: 1,
         justifyContent: 'center'
@@ -71,11 +75,6 @@ export const appStyles = StyleSheet.create({
     icon: {
         width: 22,
         height: 22,
-    },
-    //delete after use
-    icon_demo: {
-        width: 25,
-        height: 25,
     },
     bottomIcon: {
         width: 28,

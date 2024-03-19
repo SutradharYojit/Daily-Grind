@@ -1,35 +1,28 @@
-import React, { PropsWithChildren, useState } from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import AppText from "../../components/primary_text";
-import BackButton from '../../../assets/icons/left_arrow.svg';
+import AppText from "../../../components/primary_text";
 import UnSaved from '../../../assets/icons/saved_outline.svg';
 import Saved from '../../../assets/icons/saved_filled.svg';
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ColorManager } from "../../resources/color_manager";
-import { fontFamily } from "../../resources/assets_manager";
-import DetailCaffeTab from "./detail_caffe_tab";
+import { ColorManager } from "../../../resources/color_manager";
+import { fontFamily } from "../../../resources/assets_manager";
+import DetailCaffeTab from "../detail_caffe_tab";
 import CoffeeShopTab from "./coffee_shop_tab";
-
-// type AppBarProps = PropsWithChildren<{
-//     title: string,
-//     nav: Function,
-// }>;
+import AppBar from "../../../components/app_bar";
+import { appStyles } from "../../../resources/style";
 
 const ShopDetailsScreen = (props: any) => {
     const [tabBarView, setBarView] = useState(true)
-
     return (
-        <SafeAreaView style={styles.container}>
-            <View style={styles.appBar}>
-                <TouchableOpacity onPress={() => { }}>
-                    <BackButton width={30} height={30}></BackButton>
-                </TouchableOpacity>
-                <Text style={styles.titleText}>Detail Place</Text>
+        <SafeAreaView style={appStyles.whiteBackground}>
+            <AppBar title="Detail Place" nav={() => {
+                props.navigation.goBack();
+            }}>
                 <TouchableOpacity onPress={() => { }}>
                     <UnSaved width={30} height={30}></UnSaved>
                 </TouchableOpacity>
-            </View>
-            <View style={{ padding: 15 }}>
+            </AppBar>
+            <View style={{ padding: 15, flex: 1 }}>
                 <View style={{
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -86,7 +79,9 @@ const ShopDetailsScreen = (props: any) => {
                 </View>
                 {
                     tabBarView ?
-                        <DetailCaffeTab></DetailCaffeTab> :
+
+                        <DetailCaffeTab></DetailCaffeTab>
+                        :
                         <CoffeeShopTab></CoffeeShopTab>
                 }
             </View>
@@ -123,24 +118,6 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         position: 'relative',
         zIndex: 0,
-    },
-    container: {
-        flex: 1,
-        backgroundColor: ColorManager.whiteColor,
-    },
-    appBar: {
-        paddingHorizontal: 15,
-        height: 55,
-        flexDirection: 'row',
-        backgroundColor: ColorManager.whiteColor,
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
-    titleText: {
-        textAlignVertical: "center",
-        color: ColorManager.blackColor,
-        fontSize: 20,
-        fontWeight: '500',
     },
     tabBarText: {
         fontSize: 18,

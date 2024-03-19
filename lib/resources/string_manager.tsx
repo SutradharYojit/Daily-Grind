@@ -4,7 +4,6 @@ export class StringManager {
     static dailyTxt = "Daily";
     static grindTxt = "Grind";
 
-
     //On boarding screen
     static getStartBtnTxt = "Get Started";
     static nextBtnTxt = "Next";
@@ -42,6 +41,15 @@ export class StringManager {
     static successTxt = "After this you can explore our services and enjoy our products. Have fun and enjoy it!";
     static seeMoreBtnTxt = "See More";
 
+    // History Screen
+    static historyTxt = "History";
+    static recentActiTxt = "Recent Activity";
+    static lastWeekTxt = "Last Week";
+    static topUpTxt = "Top Up IDR ";
+    static topUpCongTxt = "Congratulations, you have successfully made a top up of IDR ";
+    static buyCoffeeCongTxt = "Congratulations, you have successfully made a coffee purchase";
 
+    //Pay Screen
+    static payTxt = "Pay";
 
 }

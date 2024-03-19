@@ -15,4 +15,7 @@ export class RoutesName {
     static userProfileScreen = "UserProfileScreen";
     static coffeeShopCoverScreen = "CoffeeShopCoverScreen";
     static shopDetailsScreen = "ShopDetailsScreen";
+    static historyScreen = "HistoryScreen";
+    static payScreen = "PayScreen";
+    
 }

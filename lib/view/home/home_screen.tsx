@@ -1,12 +1,13 @@
-import React from "react";
-import { FlatList, Image, ImageBackground, ScrollView, StyleSheet, TouchableNativeFeedback, TouchableOpacity, View } from "react-native";
+import React, { PropsWithChildren } from "react";
+import { FlatList, Image, ImageBackground, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { appStyles } from "../../resources/style";
 import AppText from "../../components/primary_text";
 import { ColorManager } from "../../resources/color_manager";
 import { StringManager } from "../../resources/string_manager";
 import { fontFamily } from "../../resources/assets_manager";
 import { RoutesName } from "../../routes/routes_name";
+import History from "../../../assets/icons/history.svg";
+import Pay from "../../../assets/icons/pay.svg";
 
 
 const HomePageScreen = (props: any) => {
@@ -14,68 +15,52 @@ const HomePageScreen = (props: any) => {
     const cardOptionsData = [
         {
             id: 1,
-            icon: require("../../../assets/icons/top_up.png"),
+            icon: <History width={35} height={35}></History>,
             onPress: () => { },
             subtitle: "Top Up",
         }, {
             id: 2,
-            icon: require("../../../assets/icons/pay.png"),
-            onPress: () => { },
+            icon: <Pay width={35} height={35}></Pay>,
+            onPress: () => {
+                props.navigation.navigate(RoutesName.payScreen);
+            },
             subtitle: "Pay",
         }, {
             id: 3,
-            icon: require("../../../assets/icons/promo.png"),
+            icon: <History width={35} height={35}></History>,
             onPress: () => { },
             subtitle: "Promo",
         }, {
             id: 4,
-            icon: require("../../../assets/icons/history.png"),
-            onPress: () => { },
+            icon: <History width={35} height={35}></History>,
+            onPress: () => {
+                props.navigation.navigate(RoutesName.historyScreen);
+            },
             subtitle: "History",
         },
     ];
 
     return (
-        <SafeAreaView style={{ flex: 1 }} >
+        <SafeAreaView style={styles.container} >
             <ScrollView
                 showsVerticalScrollIndicator={false}
             >
-                <View style={{ flex: 1 }} >
-                    <View style={{
-                        minHeight: 200,
-                        maxHeight: 500,
-                        backgroundColor: ColorManager.greenColor,
-                        padding: 15,
-                        position: 'relative',
-                        zIndex: 1
-                    }}>
-                        <AppText style={{
-                            color: ColorManager.whiteColor,
-                            fontSize: 25,
-                            fontFamily: fontFamily.PlusJakartaMedium,
-                        }}>
+                <View style={styles.container} >
+                    <View style={styles.header}>
+                        <AppText style={styles.headerText}>
                             {StringManager.myApp}
                         </AppText>
 
                     </View>
-                    <View style={{
-                        backgroundColor: ColorManager.whiteColor,
-                        padding: 20,
-                        borderRadius: 20,
-                        position: 'absolute',
-                        width: "92%",
-                        alignSelf: 'center',
-                        top: 95,
-                        zIndex: 2
-                    }}>
+                    <View style={styles.balanceContainer}>
                         <View style={{
                             flexDirection: 'row',
                             justifyContent: 'space-between'
                         }}>
-                            <AppText style={{ fontSize: 17, color: ColorManager.greyColor }}>
+                            <AppText style={styles.balanceLabel}>
                                 Your card balance
                             </AppText>
-                            <AppText style={{ fontSize: 18, color: ColorManager.blackColor, fontWeight: '600' }}>
+                            <AppText style={styles.balanceAmount}>
                                 $240.00
                             </AppText>
                         </View>
@@ -96,9 +81,9 @@ const HomePageScreen = (props: any) => {
                             {
                                 cardOptionsData.map((data) => <CardOptions
                                     key={data.id}
-                                    source={data.icon}
+                                    children={data.icon}
                                     onPress={data.onPress}
-                                    subtitle={data.subtitle}>
+                                    title={data.subtitle} >
                                 </CardOptions>)
                             }
 
@@ -277,13 +262,18 @@ const HomePageScreen = (props: any) => {
     );
 }
 
-const CardOptions = ({ source, onPress, subtitle }: any) => {
+type CardProps = PropsWithChildren<{
+    title: string,
+    onPress: Function,
+}>;
+
+const CardOptions = ({ children, onPress, title, }: CardProps) => {
     return (
-        <TouchableOpacity onPress={onPress} >
+        <TouchableOpacity onPress={() => onPress()} >
             <View style={{ alignItems: 'center' }}>
-                <Image source={source} style={{ width: 35, height: 35 }}></Image>
+                {children}
                 <AppText style={{ fontSize: 17, color: ColorManager.greyColor }}>
-                    {subtitle}
+                    {title}
                 </AppText>
             </View>
         </TouchableOpacity>
@@ -350,7 +340,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: ColorManager.blackColor,
         fontWeight: '600',
-        marginTop: 5,
     },
     cardOption: {
         alignItems: 'center',

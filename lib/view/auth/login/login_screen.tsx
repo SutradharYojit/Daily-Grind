@@ -35,11 +35,14 @@ const LoginScreen = (props: any) => {
     return (
         <SafeAreaView style={appStyles.container}>
             <ScrollView>
-                <View style={{}}>
+                <View  >
                     <View style={{ paddingVertical: 45 }}>
-                        <AppText style={[appStyles.appTitle, {
-                            fontFamily: fontFamily.PlusJakartaBold,
-                        }]}>{StringManager.dailyTxt}
+                        <AppText
+                            style={[appStyles.appTitle,
+                            {
+                                fontFamily: fontFamily.PlusJakartaBold,
+                            }
+                            ]}>{StringManager.dailyTxt}
                             <AppText style={styles.appTitleGreen}>{StringManager.grindTxt}</AppText></AppText>
                     </View>
 
@@ -134,30 +137,17 @@ const LoginScreen = (props: any) => {
                         alignItems: 'center',
                         paddingTop: 55,
                     }}>
-                        <View
-                            style={{
-                                flex: 1,
-                                backgroundColor: ColorManager.greyColor,
-                                height: 2.0,
-                            }}
-                        />
+                        <View style={styles.dividerStyle} />
                         <View style={{ paddingHorizontal: 20 }}>
                             <AppText style={{ color: ColorManager.greyColor }}>{StringManager.continueTxt}</AppText>
                         </View>
-                        <View
-                            style={{
-                                flex: 1,
-                                backgroundColor: ColorManager.greyColor,
-                                height: 2.0,
-                            }}
-                        />
+                        <View style={styles.dividerStyle} />
                     </View>
 
                     <View style={{
                         flexDirection: 'row',
                         justifyContent: 'space-evenly',
                         paddingTop: 45,
-                        // aspectRatio:20
                     }}>
                         <CardTile source={google} onPress={() => { }}></CardTile>
                         <CardTile source={apple} onPress={() => { }}></CardTile>
@@ -207,6 +197,11 @@ const styles = StyleSheet.create({
         width: 25,
         height: 25,
     },
+    dividerStyle: {
+        flex: 1,
+        backgroundColor: ColorManager.greyColor,
+        height: 2.0,
+    }
 });
 
 
