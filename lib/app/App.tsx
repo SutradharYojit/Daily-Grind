@@ -12,7 +12,7 @@ import DashboardScreen from '../view/dashboard/dashboard';
 import ForgetPassScreen from '../view/auth/forget_pass/forget_pass_screen';
 import NewPasswordScreen from '../view/auth/forget_pass/create_new_pass_screen';
 import CoffeeShopCoverScreen from '../view/coffer_shop_cover/coffee_shop_cover_screen';
-import ShopDetailsScreen from '../view/shop_details/components/shop_details_screen';
+import ShopDetailsScreen from '../view/shop_details/shop_details_screen';
 import HistoryScreen from '../view/history/history_screen';
 import PayScreen from '../view/pay/pay_screen';
 

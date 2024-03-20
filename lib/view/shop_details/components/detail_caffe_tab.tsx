@@ -1,9 +1,7 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
-import AppText from "../../components/primary_text";
-import { ColorManager } from "../../resources/color_manager";
-import { fontFamily } from "../../resources/assets_manager";
-
+import AppText from "../../../components/primary_text";
+import { ColorManager } from "../../../resources/color_manager";
 
 const DetailCaffeTab = () => {
     return (
@@ -45,7 +43,7 @@ const DetailCaffeTab = () => {
             }}>
                 <Image
                     style={styles.reviewerImage}
-                    source={require(`../../../assets/images/person_1.jpg`)}
+                    source={require(`../../../../assets/images/person_1.jpg`)}
                 />
 
                 <View style={styles.reviewerInfoContainer}>
@@ -73,7 +71,7 @@ const DetailCaffeTab = () => {
                                 {
                                     [1, 2, 3, 4, 5].map((data) => <Image
                                         key={data}
-                                        source={require("../../../assets/icons/gold_start.png")}
+                                        source={require("../../../../assets/icons/gold_start.png")}
                                         style={styles.starImage}
                                     />
                                     )
@@ -84,12 +82,8 @@ const DetailCaffeTab = () => {
                     <AppText style={styles.descriptionText}>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
                     </AppText>
-
                 </View>
-
             </View>
-
-
         </View>
     );
 

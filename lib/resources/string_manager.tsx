@@ -51,5 +51,13 @@ export class StringManager {
 
     //Pay Screen
     static payTxt = "Pay";
+    static payNowBtnTxt = "Pay Now";
+    static enterPhoneTxt = "Or Enter the phone number here";
+    static phoneExmTxt = "+91 124597853";
+    static enterNominalTxt = "Or enter the top up nominal here";
+    static nominalAmountExmTxt = "Minimum IDR 10,000";
+
+
+
 
 }

@@ -1,25 +1,32 @@
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import AppText from "../../../components/primary_text";
+import AppText from "../../components/primary_text";
 import UnSaved from '../../../assets/icons/saved_outline.svg';
 import Saved from '../../../assets/icons/saved_filled.svg';
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ColorManager } from "../../../resources/color_manager";
-import { fontFamily } from "../../../resources/assets_manager";
-import DetailCaffeTab from "../detail_caffe_tab";
-import CoffeeShopTab from "./coffee_shop_tab";
-import AppBar from "../../../components/app_bar";
-import { appStyles } from "../../../resources/style";
+import { ColorManager } from "../../resources/color_manager";
+import { fontFamily } from "../../resources/assets_manager";
+import CoffeeShopTab from "./components/coffee_shop_tab";
+import AppBar from "../../components/app_bar";
+import { appStyles } from "../../resources/style";
+import DetailCaffeTab from "./components/detail_caffe_tab";
 
 const ShopDetailsScreen = (props: any) => {
     const [tabBarView, setBarView] = useState(true)
+    const [saved, setSaved] = useState(true)
+
     return (
         <SafeAreaView style={appStyles.whiteBackground}>
             <AppBar title="Detail Place" nav={() => {
                 props.navigation.goBack();
             }}>
-                <TouchableOpacity onPress={() => { }}>
-                    <UnSaved width={30} height={30}></UnSaved>
+                <TouchableOpacity onPress={() => {
+                    setSaved(!saved)
+                }}>
+                    {saved ?
+                        <UnSaved width={30} height={30}></UnSaved> :
+                        <Saved width={30} height={30}></Saved>
+                    }
                 </TouchableOpacity>
             </AppBar>
             <View style={{ padding: 15, flex: 1 }}>
@@ -46,7 +53,8 @@ const ShopDetailsScreen = (props: any) => {
                                         style={[styles.ratingImage, { right: 15 * data }]}
                                         source={require(`../../../assets/images/cafe_4.jpg`)}
                                     />
-                                ))
+                                )
+                                )
                             }
                         </View>
                     </View>

@@ -2,38 +2,38 @@ import React from "react";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import AppText from "../../../components/primary_text";
 import { ColorManager } from "../../../resources/color_manager";
- 
+
 
 const CoffeeShopTab = (props: any) => {
     const coffeeMenu = [
         {
             id: 1,
             name: "Vanilla Sweet Cream",
-            image: require("../../../assets/images/coffe_1.png"),
+            image: require("../../../../assets/images/coffe_1.png"),
             price: 250.00
         },
         {
             id: 2,
             name: "Salted Caramel Latte",
-            image: require("../../../assets/images/coffe_2.png"),
+            image: require("../../../../assets/images/coffe_2.png"),
             price: 100.00
         },
         {
             id: 3,
             name: "Salted Caramel Latte",
-            image: require("../../../assets/images/coffe_3.png"),
+            image: require("../../../../assets/images/coffe_3.png"),
             price: 250.00
         },
         {
             id: 4,
             name: "Caramel Macchiato",
-            image: require("../../../assets/images/coffe_4.png"),
+            image: require("../../../../assets/images/coffe_4.png"),
             price: 200.00
         },
         {
             id: 5,
             name: "Mocha Frappuccino",
-            image: require("../../../assets/images/coffe_5.png"),
+            image: require("../../../../assets/images/coffe_5.png"),
             price: 175.00
         },
     ];
@@ -41,18 +41,18 @@ const CoffeeShopTab = (props: any) => {
     return (
         <ScrollView >
             {
-            coffeeMenu.map((data) => (
-                <View key={data.id} style={styles.menuItem}>
-                    <View style={styles.imageContainer}>
-                        <Image source={data.image} style={styles.image} />
+                coffeeMenu.map((data) => (
+                    <View key={data.id} style={styles.menuItem}>
+                        <View style={styles.imageContainer}>
+                            <Image source={data.image} style={styles.image} />
+                        </View>
+                        <View style={styles.textContainer}>
+                            <AppText style={styles.name}>{data.name}</AppText>
+                            <AppText style={styles.price}>IDR {data.price}</AppText>
+                        </View>
                     </View>
-                    <View style={styles.textContainer}>
-                        <AppText style={styles.name}>{data.name}</AppText>
-                        <AppText style={styles.price}>IDR {data.price}</AppText>
-                    </View>
-                </View>
-            )
-            )
+                )
+                )
             }
         </ScrollView>
     );

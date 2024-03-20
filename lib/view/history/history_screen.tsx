@@ -56,7 +56,7 @@ const HistoryScreen = (props: any) => {
             <View style={{ padding: 15 }}>
                 <AppText style={styles.title}>Recent activity</AppText>
                 {
-                    coffeePurchase.map((data) => <TransactionCard topUp={data.topUp} buyCoffee={data.buyCoffee} price={data.price}></TransactionCard>)
+                    coffeePurchase.map((data) => <TransactionCard key={data.id} topUp={data.topUp} buyCoffee={data.buyCoffee} price={data.price}></TransactionCard>)
                 }
             </View>
         </SafeAreaView >
@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
     textContainer: {
         flex: 1,
     },
-
     description: {
         fontSize: 16,
         color: ColorManager.greyColor,

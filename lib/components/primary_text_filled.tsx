@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleProp, TextInput, TextStyle } from "react-native";
+import { KeyboardTypeOptions, StyleProp, TextInput, TextStyle } from "react-native";
 
 type textFilledProps = {
     placeholderTextColor: string;
@@ -7,11 +7,13 @@ type textFilledProps = {
     onChangeText: (Text: string) => void;
     placeholder: string;
     secureTextEntry?: boolean;
+    keyboardType?: KeyboardTypeOptions
 }
 
 const PrimaryTextFilled = (props: textFilledProps) => {
     return (
         <TextInput
+            keyboardType={props.keyboardType ?? "default"}
             secureTextEntry={props.secureTextEntry == null ? false : props.secureTextEntry}
             placeholderTextColor={props.placeholderTextColor}
             style={props.style}
