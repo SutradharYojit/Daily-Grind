@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { appStyles } from "../../../resources/style";
+import { appTheme } from "../../../resources/style";
 import { Image, View } from "react-native";
 import AppText from "../../../components/primary_text";
 import { ColorManager } from "../../../resources/color_manager";
@@ -10,7 +10,7 @@ import { StringManager } from "../../../resources/string_manager";
 
 const ComepleAuthScreen = (props: any) => {
     return (
-        <SafeAreaView style={appStyles.container}>
+        <SafeAreaView style={appTheme.container}>
             <View style={{ flex: 1, justifyContent: 'flex-end' }}>
                 <View style={{ paddingHorizontal: 45 }}>
                     <Image style={{ width: '110%', height: "53%" }} source={require("../../../../assets/images/complete_auth.png")}></Image>

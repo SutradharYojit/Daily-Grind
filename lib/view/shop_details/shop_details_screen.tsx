@@ -8,7 +8,7 @@ import { ColorManager } from "../../resources/color_manager";
 import { fontFamily } from "../../resources/assets_manager";
 import CoffeeShopTab from "./components/coffee_shop_tab";
 import AppBar from "../../components/app_bar";
-import { appStyles } from "../../resources/style";
+import { appTheme } from "../../resources/style";
 import DetailCaffeTab from "./components/detail_caffe_tab";
 
 const ShopDetailsScreen = (props: any) => {
@@ -16,7 +16,7 @@ const ShopDetailsScreen = (props: any) => {
     const [saved, setSaved] = useState(true)
 
     return (
-        <SafeAreaView style={appStyles.whiteBackground}>
+        <SafeAreaView style={appTheme.whiteBackground}>
             <AppBar title="Detail Place" nav={() => {
                 props.navigation.goBack();
             }}>

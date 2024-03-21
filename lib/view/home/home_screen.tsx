@@ -1,5 +1,13 @@
 import React, { PropsWithChildren } from "react";
-import { FlatList, Image, ImageBackground, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
+import {
+    FlatList,
+    Image,
+    ImageBackground,
+    ScrollView,
+    StyleSheet,
+    TouchableOpacity,
+    View
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AppText from "../../components/primary_text";
 import { ColorManager } from "../../resources/color_manager";
@@ -8,7 +16,8 @@ import { fontFamily } from "../../resources/assets_manager";
 import { RoutesName } from "../../routes/routes_name";
 import History from "../../../assets/icons/history.svg";
 import Pay from "../../../assets/icons/pay.svg";
-
+import Promo from "../../../assets/icons/promo.svg";
+import ViewAllTile from "../../components/view_all";
 
 const HomePageScreen = (props: any) => {
 
@@ -27,8 +36,10 @@ const HomePageScreen = (props: any) => {
             subtitle: "Pay",
         }, {
             id: 3,
-            icon: <History width={35} height={35}></History>,
-            onPress: () => { },
+            icon: <Promo width={35} height={35}></Promo>,
+            onPress: () => {
+                props.navigation.navigate(RoutesName.promoScreen);
+            },
             subtitle: "Promo",
         }, {
             id: 4,
@@ -140,6 +151,7 @@ const HomePageScreen = (props: any) => {
                                     </AppText>
                                 </View>
                             </View>
+
                             <ViewAllTile title={"Favorite Place"} onPress={() => { }}></ViewAllTile>
                         </View>
                         <FlatList
@@ -279,31 +291,6 @@ const CardOptions = ({ children, onPress, title, }: CardProps) => {
         </TouchableOpacity>
     );
 };
-
-const ViewAllTile = ({ title, onPress }: any) => {
-    return (
-        <View style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            paddingVertical: 11,
-
-        }}>
-            <AppText style={{
-                fontSize: 18,
-                fontWeight: '700',
-                color: ColorManager.blackColor,
-                fontFamily: fontFamily.PlusJakartaMedium
-            }}>
-                {title}
-            </AppText>
-            <TouchableOpacity onPress={onPress}>
-                <AppText style={{ fontSize: 16, color: ColorManager.greenColor, fontWeight: '600' }}>
-                    View all
-                </AppText>
-            </TouchableOpacity>
-        </View>
-    );
-}
 
 const styles = StyleSheet.create({
     container: {

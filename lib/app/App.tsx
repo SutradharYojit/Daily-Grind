@@ -15,6 +15,7 @@ import CoffeeShopCoverScreen from '../view/coffer_shop_cover/coffee_shop_cover_s
 import ShopDetailsScreen from '../view/shop_details/shop_details_screen';
 import HistoryScreen from '../view/history/history_screen';
 import PayScreen from '../view/pay/pay_screen';
+import PromoScreen from '../view/promo/promo_screen';
 
 function App(): React.JSX.Element {
   const ScreenStack = createNativeStackNavigator();
@@ -36,7 +37,6 @@ function App(): React.JSX.Element {
           }}
           component={OnBoardingScreen}>
         </ScreenStack.Screen>
-
         <ScreenStack.Screen
           name={RoutesName.loginScreen}
           options={{
@@ -115,9 +115,15 @@ function App(): React.JSX.Element {
           }}
           component={PayScreen}>
         </ScreenStack.Screen>
+        <ScreenStack.Screen
+          name={RoutesName.promoScreen}
+          options={{
+            headerShown: false,
+          }}
+          component={PromoScreen}>
+        </ScreenStack.Screen>
       </ScreenStack.Navigator>
     </NavigationContainer>
   );
 }
-
 export default App;

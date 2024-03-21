@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { appStyles } from "../../resources/style";
+import { appTheme } from "../../resources/style";
 import { Image, ImageSourcePropType, View } from "react-native";
 import { Text } from "react-native-paper";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -39,7 +39,7 @@ const DashboardScreen = () => {
                     default:
                         throw new Error(`Invalid route name: ${route.name}`);
                 }
-                return <Image style={appStyles.bottomIcon} source={iconName} />
+                return <Image style={appTheme.bottomIcon} source={iconName} />
 
             },
         })}>

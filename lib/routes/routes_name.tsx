@@ -17,5 +17,5 @@ export class RoutesName {
     static shopDetailsScreen = "ShopDetailsScreen";
     static historyScreen = "HistoryScreen";
     static payScreen = "PayScreen";
-    
+    static promoScreen = "PromoScreen";
 }

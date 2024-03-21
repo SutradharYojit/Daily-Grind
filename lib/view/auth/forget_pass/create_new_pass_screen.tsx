@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { appStyles } from "../../../resources/style";
+import { appTheme } from "../../../resources/style";
 import { Image, View } from "react-native";
 import PrimaryButton from "../../../components/buttons/primary_button";
 import AppText from "../../../components/primary_text";
@@ -27,43 +27,43 @@ const NewPasswordScreen = (props: any) => {
     const toggleShowConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);
 
     return (
-        <SafeAreaView style={appStyles.container}>
+        <SafeAreaView style={appTheme.container}>
             <View style={{ flex: 1, paddingTop: 50 }}>
-                <AppText style={appStyles.title}>{StringManager.createNewPassTxt}</AppText>
-                <AppText style={appStyles.subtitle}>{StringManager.inputNewPassTxt}</AppText>
+                <AppText style={appTheme.title}>{StringManager.createNewPassTxt}</AppText>
+                <AppText style={appTheme.subtitle}>{StringManager.inputNewPassTxt}</AppText>
 
                 <View style={{ paddingTop: 8 }}>
-                    <AppText style={appStyles.label}>{StringManager.passTxt}</AppText>
-                    <View style={appStyles.textFilledcontainer}>
+                    <AppText style={appTheme.label}>{StringManager.passTxt}</AppText>
+                    <View style={appTheme.textFilledcontainer}>
                         <PrimaryTextFilled
                             secureTextEntry={!showPassword}
                             placeholder={StringManager.passExmTxt}
                             onChangeText={(text) => validate.passValidate(text, setPassword, setPassWarn)}
                             placeholderTextColor={ColorManager.greyColor}
-                            style={appStyles.textfilled_1}
+                            style={appTheme.textfilled_1}
                         />
                         <IconButton onPress={toggleShowPassword}>
-                            <Image style={appStyles.icon} source={showPassword ? unhide : hide} />
+                            <Image style={appTheme.icon} source={showPassword ? unhide : hide} />
                         </IconButton>
                     </View>
-                    {passWarn.length > 0 && <AppText style={appStyles.error}>{passWarn}</AppText>}
+                    {passWarn.length > 0 && <AppText style={appTheme.error}>{passWarn}</AppText>}
                 </View>
 
                 <View style={{ paddingTop: 8 }}>
-                    <AppText style={appStyles.label}>{StringManager.confirmPassTxt}</AppText>
-                    <View style={appStyles.textFilledcontainer}>
+                    <AppText style={appTheme.label}>{StringManager.confirmPassTxt}</AppText>
+                    <View style={appTheme.textFilledcontainer}>
                         <PrimaryTextFilled
                             secureTextEntry={!showConfirmPassword}
                             placeholder={StringManager.passExmTxt}
                             onChangeText={(text) => validate.passValidate(text, setConfirm, setConfirmWarn)}
                             placeholderTextColor={ColorManager.greyColor}
-                            style={appStyles.textfilled_1}
+                            style={appTheme.textfilled_1}
                         />
                         <IconButton onPress={toggleShowConfirmPassword}>
-                            <Image style={appStyles.icon} source={showConfirmPassword ? unhide : hide} />
+                            <Image style={appTheme.icon} source={showConfirmPassword ? unhide : hide} />
                         </IconButton>
                     </View>
-                    {confirmWarn.length > 0 && <AppText style={appStyles.error}>{confirmWarn}</AppText>}
+                    {confirmWarn.length > 0 && <AppText style={appTheme.error}>{confirmWarn}</AppText>}
                 </View>
 
                 <AppText style={styles.passwordRequirements}>

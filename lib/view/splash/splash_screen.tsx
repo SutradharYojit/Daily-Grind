@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { appStyles } from "../../resources/style";
+import { appTheme } from "../../resources/style";
 import { ColorManager } from "../../resources/color_manager";
 import AppText from "../../components/primary_text";
 import { fontFamily } from "../../resources/assets_manager";
@@ -24,9 +24,9 @@ const SplashScreen = (props: any) => {
 
 
     return (
-        <SafeAreaView style={appStyles.container}>
-            <View style={[appStyles.viewStyle,]}>
-                <AppText style={appStyles.appTitle}>Daily<AppText style={{
+        <SafeAreaView style={appTheme.container}>
+            <View style={[appTheme.viewStyle,]}>
+                <AppText style={appTheme.appTitle}>Daily<AppText style={{
                     fontSize: 45,
                     color: ColorManager.greenColor,
                     fontFamily: fontFamily.PlusJakartaMedium,

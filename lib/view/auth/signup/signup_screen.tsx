@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AppText from "../../../components/primary_text";
 import { fontFamily } from "../../../resources/assets_manager";
 import { ColorManager } from "../../../resources/color_manager";
-import { appStyles } from "../../../resources/style";
+import { appTheme } from "../../../resources/style";
 import PrimaryTextFilled from "../../../components/primary_text_filled";
 import { StringManager } from "../../../resources/string_manager";
 import PrimaryButton from "../../../components/buttons/primary_button";
@@ -26,16 +26,16 @@ const SingUpScreen = (props: any) => {
     const toggleShowPassword = () => setShowPassword(!showPassword);
 
     return (
-        <SafeAreaView style={appStyles.container}>
+        <SafeAreaView style={appTheme.container}>
             <View style={{ flex: 1, paddingTop: 50 }}>
-                <AppText style={appStyles.title}> {StringManager.createNewAccTxt}</AppText>
-                <AppText style={appStyles.subtitle}>{StringManager.inputAccDetailsTxt}</AppText>
+                <AppText style={appTheme.title}> {StringManager.createNewAccTxt}</AppText>
+                <AppText style={appTheme.subtitle}>{StringManager.inputAccDetailsTxt}</AppText>
                 <AppText style={styles.label}>{StringManager.userNameLabelTxt}</AppText>
                 <PrimaryTextFilled
                     placeholder={StringManager.userNameLabelTxt}
                     onChangeText={setUserName}
                     placeholderTextColor={ColorManager.greyColor}
-                    style={appStyles.textfilled}
+                    style={appTheme.textfilled}
                 />
 
                 <AppText style={styles.label}>{StringManager.emailTxt}</AppText>
@@ -43,24 +43,24 @@ const SingUpScreen = (props: any) => {
                     placeholder={StringManager.emailExmTxt}
                     onChangeText={(text) => validate.emailValidate(text, setUserEmail, setEmailWarn)}
                     placeholderTextColor={ColorManager.greyColor}
-                    style={appStyles.textfilled}
+                    style={appTheme.textfilled}
                 />
-                {emailWarn.length > 0 && <AppText style={appStyles.error}>{emailWarn}</AppText>}
+                {emailWarn.length > 0 && <AppText style={appTheme.error}>{emailWarn}</AppText>}
 
                 <AppText style={styles.label}>{StringManager.passTxt}</AppText>
-                <View style={appStyles.textFilledcontainer}>
+                <View style={appTheme.textFilledcontainer}>
                     <PrimaryTextFilled
                         secureTextEntry={!showPassword}
                         placeholder={StringManager.passExmTxt}
                         onChangeText={(text) => validate.passValidate(text, setUserPass, setPassWarn)}
                         placeholderTextColor={ColorManager.greyColor}
-                        style={appStyles.textfilled_1}
+                        style={appTheme.textfilled_1}
                     />
                     <IconButton onPress={toggleShowPassword}>
-                        <Image style={appStyles.icon} source={showPassword ? unhide : hide} />
+                        <Image style={appTheme.icon} source={showPassword ? unhide : hide} />
                     </IconButton>
                 </View>
-                {passWarn.length > 0 && <AppText style={appStyles.error}>{passWarn}</AppText>}
+                {passWarn.length > 0 && <AppText style={appTheme.error}>{passWarn}</AppText>}
             </View>
 
             <View>

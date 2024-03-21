@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { ColorManager } from "./color_manager";
 import { fontFamily } from "./assets_manager";
 
-export const appStyles = StyleSheet.create({
+export const appTheme = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: ColorManager.whiteColor,

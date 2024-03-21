@@ -56,8 +56,10 @@ export class StringManager {
     static phoneExmTxt = "+91 124597853";
     static enterNominalTxt = "Or enter the top up nominal here";
     static nominalAmountExmTxt = "Minimum IDR 10,000";
+    static choosePaymentTxt = "Choose Payment Method";
+    static sendPaymentTxt = "Send Payment to:";
+    static choosenominalPayTxt = "Choose Nominal Payment";
 
-
-
-
+    // Promo Screen
+    static promoTxt = "Promo";
 }

@@ -3,7 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AppBar from "../../components/app_bar";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import OptionsIcon from "../../../assets/icons/options.svg";
-import { appStyles } from "../../resources/style";
+import { appTheme } from "../../resources/style";
 import AppText from "../../components/primary_text";
 import { fontFamily } from "../../resources/assets_manager";
 import { ColorManager } from "../../resources/color_manager";
@@ -47,7 +47,7 @@ const HistoryScreen = (props: any) => {
 
 
     return (
-        <SafeAreaView style={appStyles.whiteBackground}>
+        <SafeAreaView style={appTheme.whiteBackground}>
             <AppBar title={StringManager.historyTxt} nav={() => { props.navigation.goBack(); }}>
                 <TouchableOpacity onPress={() => { }}>
                     <OptionsIcon width={30} height={30} />

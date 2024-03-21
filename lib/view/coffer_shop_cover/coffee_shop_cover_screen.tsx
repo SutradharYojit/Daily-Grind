@@ -6,7 +6,7 @@ import { ColorManager } from "../../resources/color_manager";
 import { fontFamily } from "../../resources/assets_manager";
 import PrimaryButton from "../../components/buttons/primary_button";
 import { StringManager } from "../../resources/string_manager";
-import { appStyles } from "../../resources/style";
+import { appTheme } from "../../resources/style";
 import { RoutesName } from "../../routes/routes_name";
 
 

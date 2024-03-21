@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { appStyles } from "../../../resources/style";
+import { appTheme } from "../../../resources/style";
 import { Image, ScrollView, StyleSheet, TouchableNativeFeedback, TouchableOpacity, View } from "react-native";
 import AppText from "../../../components/primary_text";
 import { StringManager } from "../../../resources/string_manager";
@@ -33,12 +33,12 @@ const LoginScreen = (props: any) => {
     };
 
     return (
-        <SafeAreaView style={appStyles.container}>
+        <SafeAreaView style={appTheme.container}>
             <ScrollView>
                 <View  >
                     <View style={{ paddingVertical: 45 }}>
                         <AppText
-                            style={[appStyles.appTitle,
+                            style={[appTheme.appTitle,
                             {
                                 fontFamily: fontFamily.PlusJakartaBold,
                             }
@@ -47,24 +47,24 @@ const LoginScreen = (props: any) => {
                     </View>
 
                     <View style={{ paddingTop: 15 }}>
-                        <AppText style={appStyles.label}>{StringManager.emailTxt}</AppText>
+                        <AppText style={appTheme.label}>{StringManager.emailTxt}</AppText>
                         <PrimaryTextFilled
                             placeholder={StringManager.emailExmTxt}
                             onChangeText={(Text) => {
                                 validate.emailValidate(Text, setMail, setEmailWarn);
                             }}
                             placeholderTextColor={ColorManager.greyColor}
-                            style={appStyles.textfilled}
+                            style={appTheme.textfilled}
                         ></PrimaryTextFilled>
                         {
                             emailWarn.length > 0 &&
-                            <AppText style={appStyles.error}>{emailWarn}</AppText>
+                            <AppText style={appTheme.error}>{emailWarn}</AppText>
                         }
                     </View>
 
                     <View style={{ paddingTop: 8 }}>
-                        <AppText style={appStyles.label}>{StringManager.passTxt}</AppText>
-                        <View style={appStyles.textFilledcontainer}>
+                        <AppText style={appTheme.label}>{StringManager.passTxt}</AppText>
+                        <View style={appTheme.textFilledcontainer}>
                             <PrimaryTextFilled
                                 secureTextEntry={!showPassword}
                                 placeholder={StringManager.passExmTxt}
@@ -72,15 +72,15 @@ const LoginScreen = (props: any) => {
                                     validate.passValidate(Text, setPass, setPassWarn);
                                 }}
                                 placeholderTextColor={ColorManager.greyColor}
-                                style={appStyles.textfilled_1}
+                                style={appTheme.textfilled_1}
                             ></PrimaryTextFilled>
                             <IconButton onPress={() => toggleShowPassword()}>
-                                <Image style={appStyles.icon} source={showPassword ? unhide : hide}></Image>
+                                <Image style={appTheme.icon} source={showPassword ? unhide : hide}></Image>
                             </IconButton>
                         </View>
                         {
                             passWarn.length > 0 &&
-                            <AppText style={appStyles.error}>{passWarn}</AppText>
+                            <AppText style={appTheme.error}>{passWarn}</AppText>
                         }
                         <View style={{
                             flexDirection: 'row',
