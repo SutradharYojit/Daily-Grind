@@ -62,4 +62,8 @@ export class StringManager {
 
     // Promo Screen
     static promoTxt = "Promo";
+    static hottestpromoTxt = "Hottest Promo";
+    static recomendPromoTxt = "Recomendation Promo";
+
+
 }

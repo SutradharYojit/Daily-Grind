@@ -17,6 +17,8 @@ import { RoutesName } from "../../routes/routes_name";
 import History from "../../../assets/icons/history.svg";
 import Pay from "../../../assets/icons/pay.svg";
 import Promo from "../../../assets/icons/promo.svg";
+import TopUp from "../../../assets/icons/top_up.svg";
+
 import ViewAllTile from "../../components/view_all";
 
 const HomePageScreen = (props: any) => {
@@ -24,8 +26,10 @@ const HomePageScreen = (props: any) => {
     const cardOptionsData = [
         {
             id: 1,
-            icon: <History width={35} height={35}></History>,
-            onPress: () => { },
+            icon: <TopUp width={35} height={35}></TopUp>,
+            onPress: () => {
+                props.navigation.navigate(RoutesName.topUpScreen);
+            },
             subtitle: "Top Up",
         }, {
             id: 2,
