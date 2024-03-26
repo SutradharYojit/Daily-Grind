@@ -19,4 +19,6 @@ export class RoutesName {
     static payScreen = "PayScreen";
     static promoScreen = "PromoScreen";
     static topUpScreen = "TopUpScreen";
+    static bookingScreen = "BookingScreen";
+
 }

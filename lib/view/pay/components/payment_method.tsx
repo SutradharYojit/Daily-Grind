@@ -7,6 +7,7 @@ import CreditCard from '../../../../assets/images/visa.svg'
 import Bitcoin from '../../../../assets/images/bitcoin.svg'
 import Paypal from '../../../../assets/images/paypal.svg'
 import { StringManager } from "../../../resources/string_manager";
+import { appTheme } from "../../../resources/style";
 
 const PaymentMethod = (props: any) => {
     const [selectedValue, setSelectedValue] = useState('option1');
@@ -18,7 +19,7 @@ const PaymentMethod = (props: any) => {
     ]
     return (
         <View>
-            <AppText style={appStyles.sectionTitle}>
+            <AppText style={appTheme.sectionTitle}>
                 {StringManager.choosePaymentTxt}
             </AppText>
             {
@@ -46,12 +47,7 @@ const PaymentMethod = (props: any) => {
 export default PaymentMethod;
 
 const appStyles = StyleSheet.create({
-    sectionTitle: {
-        fontSize: 18,
-        color: ColorManager.blackColor,
-        fontWeight: '700',
-        marginBottom: 10
-    },
+    
     methodContainer: {
         flexDirection: 'row',
         alignItems: 'center',

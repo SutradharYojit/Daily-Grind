@@ -18,7 +18,7 @@ const SendPayment = (props: any) => {
     }
     return (
         <View>
-            <AppText style={appStyles.sectionTitle}>
+            <AppText style={appTheme.sectionTitle}>
                 {StringManager.sendPaymentTxt}
             </AppText>
             <FlatList
@@ -90,12 +90,6 @@ export default SendPayment;
 
 
 const appStyles = StyleSheet.create({
-    sectionTitle: {
-        fontSize: 18,
-        color: ColorManager.blackColor,
-        fontWeight: '700',
-        marginBottom: 10
-    },
     userItem: {
         backgroundColor: ColorManager.whiteColor,
         padding: 8,

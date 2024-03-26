@@ -17,7 +17,7 @@ const ChooseNominal = (props: any) => {
 
     return (
         <View>
-            <AppText style={appStyles.sectionTitle}>
+            <AppText style={appTheme.sectionTitle}>
                 {StringManager.choosenominalPayTxt}
             </AppText>
             <FlatList
@@ -66,12 +66,6 @@ const ChooseNominal = (props: any) => {
 export default ChooseNominal;
 
 const appStyles = StyleSheet.create({
-    sectionTitle: {
-        fontSize: 18,
-        color: ColorManager.blackColor,
-        fontWeight: '700',
-        marginBottom: 10
-    },
     inputContainer: {
         paddingVertical: 15
     },

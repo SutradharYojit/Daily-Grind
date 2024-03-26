@@ -72,7 +72,7 @@ const TransactionCard = ({ buyCoffee, topUp, price }:
             </View>
             <View style={styles.textContainer}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <AppText style={styles.title}>{topUp ? `${StringManager.topUpTxt}${price}` : buyCoffee}</AppText>
+                    <AppText style={styles.title}>{topUp ? `${StringManager.topUpIdrTxt}${price}` : buyCoffee}</AppText>
                     <AppText style={{
                         color: ColorManager.greyColor,
                         fontSize: 16

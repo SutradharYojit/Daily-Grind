@@ -17,6 +17,7 @@ import HistoryScreen from '../view/history/history_screen';
 import PayScreen from '../view/pay/pay_screen';
 import PromoScreen from '../view/promo/promo_screen';
 import TopUpScreen from '../view/top_up/top_up_screen';
+import BookingScreen from '../view/booking/booking_screen';
 
 function App(): React.JSX.Element {
   const ScreenStack = createNativeStackNavigator();
@@ -129,6 +130,13 @@ function App(): React.JSX.Element {
             headerShown: false,
           }}
           component={TopUpScreen}>
+        </ScreenStack.Screen>
+        <ScreenStack.Screen
+          name={RoutesName.bookingScreen}
+          options={{
+            headerShown: false,
+          }}
+          component={BookingScreen}>
         </ScreenStack.Screen>
       </ScreenStack.Navigator>
     </NavigationContainer>

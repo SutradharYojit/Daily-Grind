@@ -37,7 +37,7 @@ const PayScreen = (props: any) => {
                     <PaymentMethod></PaymentMethod>
                 </View>
             </ScrollView>
-            <View style={appStyles.bottomButtonContainer}>
+            <View style={appTheme.bottomButtonContainer}>
                 <PrimaryButton
                     onPress={() => { }}
                     label={StringManager.payNowBtnTxt}
@@ -54,8 +54,5 @@ const appStyles = StyleSheet.create({
         padding: 15,
         flex: 1
     },
-    bottomButtonContainer: {
-        marginHorizontal: 15,
-        marginBottom: 15
-    }
+
 });

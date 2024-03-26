@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import AppText from "../../components/primary_text";
 import UnSaved from '../../../assets/icons/saved_outline.svg';
 import Saved from '../../../assets/icons/saved_filled.svg';
@@ -10,6 +10,9 @@ import CoffeeShopTab from "./components/coffee_shop_tab";
 import AppBar from "../../components/app_bar";
 import { appTheme } from "../../resources/style";
 import DetailCaffeTab from "./components/detail_caffe_tab";
+import PrimaryButton from "../../components/buttons/primary_button";
+import { StringManager } from "../../resources/string_manager";
+import { RoutesName } from "../../routes/routes_name";
 
 const ShopDetailsScreen = (props: any) => {
     const [tabBarView, setBarView] = useState(true)
@@ -29,7 +32,7 @@ const ShopDetailsScreen = (props: any) => {
                     }
                 </TouchableOpacity>
             </AppBar>
-            <View style={{ padding: 15, flex: 1 }}>
+            <View style={appTheme.container}>
                 <View style={{
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -92,6 +95,38 @@ const ShopDetailsScreen = (props: any) => {
                         :
                         <CoffeeShopTab></CoffeeShopTab>
                 }
+            </View>
+            <View style={[appTheme.bottomButtonContainer, {
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+            }]}>
+                {
+                    tabBarView ? <AppText style={{
+                        fontSize: 18,
+                        color: ColorManager.greenColor
+                    }}>
+                        IDR 100.000 <AppText style={{
+                            fontSize: 15,
+                            color: ColorManager.greyColor
+                        }}>/Hour</AppText>
+                    </AppText> :
+                        <AppText style={{ fontSize: 25, color: ColorManager.greenColor }}>
+                            IDR 65.000
+                        </AppText>
+                }
+                <PrimaryButton
+                    onPress={() => {
+                        if (tabBarView) {
+                            props.navigation.navigate(RoutesName.bookingScreen);
+                        } else {
+
+                        }
+                    }}
+                    label={tabBarView ? StringManager.bookNowBtnTxt : StringManager.orderBtnTxt}
+                    secondryBtnStyle={{ width: 150 }}
+                >
+                </PrimaryButton>
             </View>
         </SafeAreaView >
     );

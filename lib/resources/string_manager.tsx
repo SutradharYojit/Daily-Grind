@@ -45,9 +45,15 @@ export class StringManager {
     static historyTxt = "History";
     static recentActiTxt = "Recent Activity";
     static lastWeekTxt = "Last Week";
-    static topUpTxt = "Top Up IDR ";
+    static topUpIdrTxt = "Top Up IDR ";
     static topUpCongTxt = "Congratulations, you have successfully made a top up of IDR ";
     static buyCoffeeCongTxt = "Congratulations, you have successfully made a coffee purchase";
+
+    //Shop Details Screen
+    static bookNowBtnTxt = "Book Now";
+    static orderBtnTxt = "Order Now";
+
+
 
     //Pay Screen
     static payTxt = "Pay";
@@ -65,5 +71,13 @@ export class StringManager {
     static hottestpromoTxt = "Hottest Promo";
     static recomendPromoTxt = "Recomendation Promo";
 
+    // TopUP Screen
+    static topUpTxt = "TopUp";
+    static cardNumTxt = "Card Number";
+    static cardHolTxt = "Card Holder";
+    static expDateTxt = "Expration Date";
+    static cvcTxt = "CVC";
 
+    //Booking Screen
+    static bookingTxt = "Booking";
 }

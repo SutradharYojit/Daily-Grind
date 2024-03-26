@@ -39,7 +39,9 @@ const CoffeeShopTab = (props: any) => {
     ];
 
     return (
-        <ScrollView >
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+        >
             {
                 coffeeMenu.map((data) => (
                     <View key={data.id} style={styles.menuItem}>

@@ -85,4 +85,14 @@ export const appTheme = StyleSheet.create({
         fontSize: 16,
         fontFamily: fontFamily.PlusJakartaMedium,
     },
+    sectionTitle: {
+        fontSize: 18,
+        color: ColorManager.blackColor,
+        fontWeight: '700',
+        marginBottom: 10
+    },
+    bottomButtonContainer: {
+        marginHorizontal: 15,
+        marginBottom: 15
+    }
 });

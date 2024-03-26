@@ -1,11 +1,13 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, ScrollView, StyleSheet, View } from "react-native";
 import AppText from "../../../components/primary_text";
 import { ColorManager } from "../../../resources/color_manager";
 
 const DetailCaffeTab = () => {
     return (
-        <View>
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+        >
             <View style={styles.capacityContainer}>
                 <AppText>
                     Capacity
@@ -37,54 +39,56 @@ const DetailCaffeTab = () => {
                     </AppText>
                 </View>
             </View>
-            <View style={{
-                flexDirection: 'row',
-                paddingTop: 13,
-            }}>
-                <Image
-                    style={styles.reviewerImage}
-                    source={require(`../../../../assets/images/person_1.jpg`)}
-                />
+            {
+                [0, 1, 2].map(data => <View style={{
+                    flexDirection: 'row',
+                    paddingTop: 13,
+                }}>
+                    <Image
+                        style={styles.reviewerImage}
+                        source={require(`../../../../assets/images/person_1.jpg`)}
+                    />
 
-                <View style={styles.reviewerInfoContainer}>
-                    <View style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                    }}>
-                        <View>
-                            <AppText style={styles.reviewerName}>
-                                Alex Stanton
-                            </AppText>
-                            <AppText style={styles.reviewerPosition}>
-                                CEO at Amazon
-                            </AppText>
-                        </View>
-                        <View >
-                            <AppText style={styles.reviewDate}>
-                                21 July 2022
-                            </AppText>
-                            <View style={{
-                                flexDirection: 'row-reverse',
-                                alignItems: 'center',
-                                paddingTop: 8
-                            }}>
-                                {
-                                    [1, 2, 3, 4, 5].map((data) => <Image
-                                        key={data}
-                                        source={require("../../../../assets/icons/gold_start.png")}
-                                        style={styles.starImage}
-                                    />
-                                    )
-                                }
+                    <View style={styles.reviewerInfoContainer}>
+                        <View style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                        }}>
+                            <View>
+                                <AppText style={styles.reviewerName}>
+                                    Alex Stanton
+                                </AppText>
+                                <AppText style={styles.reviewerPosition}>
+                                    CEO at Amazon
+                                </AppText>
+                            </View>
+                            <View >
+                                <AppText style={styles.reviewDate}>
+                                    21 July 2022
+                                </AppText>
+                                <View style={{
+                                    flexDirection: 'row-reverse',
+                                    alignItems: 'center',
+                                    paddingTop: 8
+                                }}>
+                                    {
+                                        [1, 2, 3, 4, 5].map((data) => <Image
+                                            key={data}
+                                            source={require("../../../../assets/icons/gold_start.png")}
+                                            style={styles.starImage}
+                                        />
+                                        )
+                                    }
+                                </View>
                             </View>
                         </View>
+                        <AppText style={styles.descriptionText}>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        </AppText>
                     </View>
-                    <AppText style={styles.descriptionText}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                    </AppText>
-                </View>
-            </View>
-        </View>
+                </View>)
+            }
+        </ScrollView>
     );
 
 };
