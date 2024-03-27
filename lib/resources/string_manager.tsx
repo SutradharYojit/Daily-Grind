@@ -53,8 +53,6 @@ export class StringManager {
     static bookNowBtnTxt = "Book Now";
     static orderBtnTxt = "Order Now";
 
-
-
     //Pay Screen
     static payTxt = "Pay";
     static payNowBtnTxt = "Pay Now";
@@ -80,4 +78,11 @@ export class StringManager {
 
     //Booking Screen
     static bookingTxt = "Booking";
+    static nameTxt = "Name";
+    static phoneNumTxt = "Phone Number";
+    static addressTxt = "Address";
+    static participantsTxt = "Participants";
+    static timeTxt = "Time";
+    static dateTxt = "Date";
+    static durationTxt = "Duration";
 }
