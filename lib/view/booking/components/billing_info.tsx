@@ -1,16 +1,13 @@
 import React from "react";
-import { KeyboardTypeOptions, View } from "react-native";
+import { View } from "react-native";
 import { StringManager } from "../../../resources/string_manager";
 import AppText from "../../../components/primary_text";
 import { appTheme } from "../../../resources/style";
 import PrimaryTextFilled from "../../../components/primary_text_filled";
 import { ColorManager } from "../../../resources/color_manager";
+import inputs from "../../../model/textfilled_input_model";
 
-interface inputs {
-    id: number,
-    label: string
-    keyboardType: KeyboardTypeOptions
-}
+
 
 const BillingInfo = () => {
     const textfilledInputs: inputs[] = [

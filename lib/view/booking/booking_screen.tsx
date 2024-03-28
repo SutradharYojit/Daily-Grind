@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { KeyboardTypeOptions, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { appTheme } from "../../resources/style";
 import AppText from "../../components/primary_text";
@@ -10,26 +10,25 @@ import { ColorManager } from "../../resources/color_manager";
 import PrimaryButton from "../../components/buttons/primary_button";
 import BillingInfo from "./components/billing_info";
 import BookingData from "./components/booking_date";
-
-interface inputs {
-    id: number,
-    label: string
-    keyboardType: KeyboardTypeOptions
-}
-
-const data = [
-    { label: 'Item 1', value: '1' },
-    { label: 'Item 2', value: '2' },
-    { label: 'Item 3', value: '3' },
-    { label: 'Item 4', value: '4' },
-    { label: 'Item 5', value: '5' },
-    { label: 'Item 6', value: '6' },
-    { label: 'Item 7', value: '7' },
-    { label: 'Item 8', value: '8' },
-];
+import PaymentOption from "./components/payment_option";
+import { RoutesName } from "../../routes/routes_name";
+import completeProcess from "../../model/complete_process";
 
 const BookingScreen = (props: any) => {
     let [count, setCount] = useState<number>(1);
+    const header = [
+        { id: 1, title: 'Billing Info', subtitle: 'Please enter your billing info' },
+        { id: 2, title: 'Booking Info', subtitle: 'Please select your booking date' },
+        { id: 3, title: 'Payment Info', subtitle: 'Please enter payment method' },
+    ];
+    const data: completeProcess = {
+        title: StringManager.successBookedCafeTxt,
+        subtitle: StringManager.agreedDateTxt,
+        btnTitle: StringManager.goToHomeBtnTxt,
+        onPress: (() => {
+            props.navigation.replace(RoutesName.dashboardScreen)
+        })
+    };
 
     const renderElement = () => {
         if (count == 1) {
@@ -38,14 +37,20 @@ const BookingScreen = (props: any) => {
         else if (count == 2) {
             return <BookingData></BookingData>;
         }
+        else if (count == 3) {
+            return <PaymentOption></PaymentOption>;
+        }
         return null;
     }
-
 
     return (
         <SafeAreaView style={appTheme.whiteBackground}>
             <AppBar title={StringManager.bookingTxt} nav={() => {
-                props.navigation.goBack();
+                if (count == 1) {
+                    props.navigation.goBack();
+                } else {
+                    setCount(count - 1);
+                }
             }}>
                 <TouchableOpacity onPress={() => { }}>
                     <OptionsIcon width={30} height={30} />
@@ -63,13 +68,13 @@ const BookingScreen = (props: any) => {
                             fontSize: 27,
                             fontWeight: '700',
                         }}>
-                            Billing Info
+                            {header[count - 1].title}
                         </AppText>
                         <AppText style={{
                             color: ColorManager.greyColor,
                             fontSize: 15,
                         }}>
-                            Please Enter your billing info
+                            {header[count - 1].subtitle}
                         </AppText>
                     </View>
                     <AppText>
@@ -77,10 +82,10 @@ const BookingScreen = (props: any) => {
                     </AppText>
                 </View>
                 <View style={{
-                    padding: 15,
+                    padding: count == 3 ? 0 : 15,
                     marginTop: 10,
                     borderColor: ColorManager.greyColor,
-                    borderWidth: 0.7,
+                    borderWidth: count == 3 ? 0 : 0.7,
                     borderRadius: 15
                 }}>
                     {
@@ -91,14 +96,19 @@ const BookingScreen = (props: any) => {
             <View style={appTheme.bottomButtonContainer}>
                 <PrimaryButton
                     onPress={() => {
-                        count = count + 1;
-                        setCount(count);
+                        if (count == 3) {
+                            props.navigation.replace(RoutesName.completeAuthScreen, { "successData": data })
+                        }
+                        else {
+                            count = count + 1;
+                            setCount(count);
+                        }
+
                     }}
-                    label={StringManager.nextBtnTxt}
+                    label={count == 3 ? StringManager.bookNowBtnTxt : StringManager.nextBtnTxt}
                 />
             </View>
         </SafeAreaView>
     );
 }
-
 export default BookingScreen;

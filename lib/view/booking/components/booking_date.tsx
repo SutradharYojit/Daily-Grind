@@ -17,6 +17,8 @@ const BookingData = (props: any) => {
     ];
     const [value, setValue] = useState('');
 
+    
+
     return (
         <View  >
             <AppText>

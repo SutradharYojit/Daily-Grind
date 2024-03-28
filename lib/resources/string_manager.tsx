@@ -85,4 +85,10 @@ export class StringManager {
     static timeTxt = "Time";
     static dateTxt = "Date";
     static durationTxt = "Duration";
+    static successBookedCafeTxt = "Successfully booked a cafe";
+    static agreedDateTxt = "You can use the word according to the agreed date";
+    static goToHomeBtnTxt = "Go to Home";
+
+
+
 }
