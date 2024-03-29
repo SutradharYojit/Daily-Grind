@@ -15,6 +15,8 @@ import { RoutesName } from "../../routes/routes_name";
 import completeProcess from "../../model/complete_process";
 
 const BookingScreen = (props: any) => {
+
+    
     let [count, setCount] = useState<number>(1);
     const header = [
         { id: 1, title: 'Billing Info', subtitle: 'Please enter your billing info' },

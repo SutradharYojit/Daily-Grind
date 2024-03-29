@@ -65,7 +65,6 @@ const HomePageScreen = (props: any) => {
                         <AppText style={styles.headerText}>
                             {StringManager.myApp}
                         </AppText>
-
                     </View>
                     <View style={styles.balanceContainer}>
                         <View style={{

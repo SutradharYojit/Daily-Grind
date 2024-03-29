@@ -1,17 +1,18 @@
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { appTheme } from "../../resources/style";
-import { Image, ImageSourcePropType, View } from "react-native";
-import { Text } from "react-native-paper";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { RoutesName } from "../../routes/routes_name";
 import HomePageScreen from "../home/home_screen";
 import CoffeeScreen from "../coffee/coffee_screen";
 import RewardScreen from "../reward/reward_screen";
 import UserProfileScreen from "../user_profile/user_profile_screen";
-import { ColorManager } from "../../resources/color_manager";
-
-
+import HomeOutline from "../../../assets/icons/home_outline.svg";
+import HomeFilled from "../../../assets/icons/home_filled.svg";
+import CoffeOutline from "../../../assets/icons/coffee_outline.svg";
+import CoffeFilled from "../../../assets/icons/coffee_filled.svg";
+import UserFilled from "../../../assets/icons/user_filled.svg";
+import UserOutline from "../../../assets/icons/user_outline.svg";
+import TagOutline from "../../../assets/icons/tag_outline.svg";
+import TagFilled from "../../../assets/icons/tag_filled.svg";
 
 const DashboardScreen = () => {
     const bottomTab = createBottomTabNavigator();
@@ -22,25 +23,24 @@ const DashboardScreen = () => {
             tabBarShowLabel: false,
             tabBarHideOnKeyboard: true,
             tabBarIcon: ({ focused, color, size }) => {
-                let iconName: ImageSourcePropType;
+                let iconName: any;
                 switch (route.name) {
                     case RoutesName.homeScreen:
-                        iconName = focused ? require("../../../assets/icons/home_filled.png") : require("../../../assets/icons/home_outline.png");
+                        iconName = focused ? <HomeFilled width={30} height={30} /> : <HomeOutline width={30} height={30} />;
                         break;
                     case RoutesName.coffeeScreen:
-                        iconName = focused ? require("../../../assets/icons/coffee_filled.png") : require("../../../assets/icons/coffe_outline.png");;
+                        iconName = focused ? <CoffeFilled width={30} height={30} /> : <CoffeOutline width={30} height={30} />;
                         break;
                     case RoutesName.rewardScreen:
-                        iconName = focused ? require("../../../assets/icons/tag_filled.png") : require("../../../assets/icons/tag_outline.png");;
+                        iconName = focused ? <TagFilled width={30} height={30} /> : <TagOutline width={30} height={30} />;
                         break;
                     case RoutesName.userProfileScreen:
-                        iconName = focused ? require("../../../assets/icons/user_filled.png") : require("../../../assets/icons/user_outline.png");;
+                        iconName = focused ? <UserFilled width={30} height={30} /> : <UserOutline width={30} height={30} />;
                         break;
                     default:
                         throw new Error(`Invalid route name: ${route.name}`);
                 }
-                return <Image style={appTheme.bottomIcon} source={iconName} />
-
+                return iconName;
             },
         })}>
             <bottomTab.Screen name={RoutesName.homeScreen} component={HomePageScreen} options={{ headerShown: false }} />
