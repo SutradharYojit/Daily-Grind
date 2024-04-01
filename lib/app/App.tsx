@@ -18,6 +18,7 @@ import PayScreen from '../view/pay/pay_screen';
 import PromoScreen from '../view/promo/promo_screen';
 import TopUpScreen from '../view/top_up/top_up_screen';
 import BookingScreen from '../view/booking/booking_screen';
+import AccountScreen from '../view/account/account_screen';
 
 function App(): React.JSX.Element {
   const ScreenStack = createNativeStackNavigator();
@@ -31,7 +32,6 @@ function App(): React.JSX.Element {
           }}
           component={SplashScreen}>
         </ScreenStack.Screen>
-
         <ScreenStack.Screen
           name={RoutesName.onBoardingScreen}
           options={{
@@ -137,6 +137,13 @@ function App(): React.JSX.Element {
             headerShown: false,
           }}
           component={BookingScreen}>
+        </ScreenStack.Screen>
+        <ScreenStack.Screen
+          name={RoutesName.accountScreen}
+          options={{
+            headerShown: false,
+          }}
+          component={AccountScreen}>
         </ScreenStack.Screen>
       </ScreenStack.Navigator>
     </NavigationContainer>

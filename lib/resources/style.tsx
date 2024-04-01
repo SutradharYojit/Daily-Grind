@@ -5,7 +5,7 @@ import { fontFamily } from "./assets_manager";
 export const appTheme = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: ColorManager.whiteColor,
+        backgroundColor: ColorManager.rgbWhiteClr,
         padding: 15
     },
     whiteBackground: {

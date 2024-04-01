@@ -1,4 +1,3 @@
-
 export class RoutesName {
     static splashScreen = "SplashScreen";
     static loginScreen = "LoginScreen";
@@ -20,5 +19,5 @@ export class RoutesName {
     static promoScreen = "PromoScreen";
     static topUpScreen = "TopUpScreen";
     static bookingScreen = "BookingScreen";
-
+    static accountScreen = "AccountScreen";
 }
