@@ -4,13 +4,17 @@ import { ColorManager } from "../resources/color_manager";
 import AppText from "./primary_text";
 import { TouchableOpacity, View } from "react-native";
 
-const ViewAllTile = ({ title, onPress }: any) => {
+type ViewAllProps = {
+    title: string,
+    onPress?: () => void,
+};
+
+const ViewAllTile = ({ title, onPress }: ViewAllProps) => {
     return (
         <View style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
             paddingVertical: 11,
-
         }}>
             <AppText style={{
                 fontSize: 18,
@@ -21,7 +25,11 @@ const ViewAllTile = ({ title, onPress }: any) => {
                 {title}
             </AppText>
             <TouchableOpacity onPress={onPress}>
-                <AppText style={{ fontSize: 16, color: ColorManager.greenColor, fontWeight: '600' }}>
+                <AppText style={{
+                    fontSize: 16,
+                    color: ColorManager.greenColor,
+                    fontWeight: '600'
+                }}>
                     View all
                 </AppText>
             </TouchableOpacity>

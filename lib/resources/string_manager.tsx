@@ -89,8 +89,6 @@ export class StringManager {
     static agreedDateTxt = "You can use the word according to the agreed date";
     static goToHomeBtnTxt = "Go to Home";
     static accountTxt = "Account";
-
-
-
-
+    static voucherTxt = "Voucher";
+    
 }

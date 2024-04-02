@@ -20,4 +20,5 @@ export class RoutesName {
     static topUpScreen = "TopUpScreen";
     static bookingScreen = "BookingScreen";
     static accountScreen = "AccountScreen";
+    static voucherDetailsScreen = "VoucherDetailsScreen";
 }

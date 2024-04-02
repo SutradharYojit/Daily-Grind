@@ -2,7 +2,6 @@ import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { appTheme } from "../../resources/style";
-import AppText from "../../components/primary_text";
 import AppBar from "../../components/app_bar";
 import { StringManager } from "../../resources/string_manager";
 import OptionsIcon from "../../../assets/icons/options.svg";
@@ -12,8 +11,6 @@ import SecondStepVeri from "../../../assets/icons/2-step-veri.svg";
 import Content from "../../../assets/icons/content.svg";
 import Delete from "../../../assets/icons/trash.svg";
 import UserOptions from "../../components/user_options_card";
-
-
 
 const AccountScreen = (props: any) => {
 
